@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("templates/head-1") -%>
+Mario Hanina
+<%- include("templates/head-2") -%>
+
+<body>
+
+    <!-- I NEED TO MAKE THE NAVBAR COLLAPSABLE -->
+    <%- include("templates/navbar") -%>
+
+    <section id="intro">
+        <h1>Hello visitor, I'm Mario.</h1>
+        <div class="intro-wrapper">
+            <img class="profile-picture" src="images/profile.jpg" alt="A picture of Me">
+            <div>
+                <h2>Welcome to my website!</h2>
+                <p>I enjoy software development, drawing, painting, and photography.
+                    I created this website to have a place where I can share what I'm making with the you.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="art">
+        <h2>Art</h2>
+        <div class="art-categories">
+            <div>
+                <a href="/art-gallery#dry-media">
+                    <div>
+                        <img src="images/drawings/crow.JPG" alt="One of my drawings">
+                    </div>
+                    <h3>Drawing and Sketching</h3>
+                </a>
+                <p>I draw because I want to materialize my thoughts, my interpretations, and my observations of the
+                    world.</p>
+            </div>
+            <!-- I NEED TO UPDATE THIS PART WITH PAINTINGS -->
+            <div>
+                <a href="/art-gallery#wet-media">
+                    <div>
+                        <img src="images/photography/lake-moraine.jpg" alt="One of my photographs">
+                    </div>
+                    <h3>Photography</h3>
+                </a>
+                <p>Just like most humans I enjoy capturing fleeting moments, especially since I like travelling a lot.
+                </p>
+            </div>
+            <div>
+                <a href="/photo-gallery">
+                    <div>
+                        <img src="images/photography/lake-moraine.jpg" alt="One of my photographs">
+                    </div>
+                    <h3>Photography</h3>
+                </a>
+                <p>Like most humans, I enjoy capturing fleeting moments. Images allow us to see through the eyes of
+                    others.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- I NEED TO ADD LINKS TO THIS SECTION AND ALSO UPDATE THE GRAPHICS -->
+    <section id="software">
+        <h2>Software</h2>
+        <div class="app-wrapper">
+            <div>
+                <a href="/apps/flashcards">
+                    <div>
+                        <img src="images/software/flashcards.png" alt="Flashcards app">
+                    </div>
+                    <h3>Flashcards app</h3>
+                </a>
+                <p>Create your own vocabulary flashcards, or practice collection of existing ones.</p>
+            </div>
+            <div>
+                <div>
+                    <img src="images/software/stocks.png" alt="Stocks app">
+                </div>
+                <h3>Stocks app</h3>
+                <p>Search for a company to take a look at their adjusted weekly stock prices.</p>
+            </div>
+            <div>
+                <div>
+                    <img src="images/software/tbd.png" alt="">
+                </div>
+                <h3>TBD</h3>
+                <p>Hmmm, what will the next project be?</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact me</h2>
+        <form class="contact-form" action="/" method="post">
+            <label for="email">Email: </label>
+            <input type="text" id="email" name="email">
+
+            <label for="phoneNumber">Phone Number: </label>
+            <input type="text" id="phoneNumber" name="phoneNumber">
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="10"></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- FIX THE GITHUB ACCOUNT LINK -->
+    <%- include("templates/copyright") -%>
+
+</body>
+
+</html>

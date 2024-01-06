@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("templates/head-1") -%>
+Art Gallery
+<%- include("templates/head-2") -%>
+
+<body>
+
+    <%- include("templates/navbar") -%>
+
+    <section id="dry-media">
+
+        <h1>Welcome to the Photo Gallery</h1>
+
+        <h2>Dry Media</h2>
+
+        <div class="artwork links-container">
+
+            <%- allArtwork %>
+
+        </div>
+
+    </section>
+
+    <!-- I NEED TO ADD PAINTINGS -->
+    <section id="wet-media">
+
+        <h2>Wet Media</h2>
+
+    </section>
+
+    <%- include("templates/copyright") -%>
+
+</body>
+
+</html>

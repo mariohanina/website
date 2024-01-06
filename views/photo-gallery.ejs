@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("templates/head-1") -%>
+Photo Gallery
+<%- include("templates/head-2") -%>
+
+<body>
+
+    <%- include("templates/navbar") -%>
+
+    <section id="photography">
+
+        <h1>Welcome to the Photo Gallery</h1>
+
+        <div class="photography"></div>
+
+    </section>
+
+    <%- include("templates/copyright") -%>
+
+</body>
+
+<script>
+    let photos = '<%- allImages %>';
+    photos = photos.split(",");
+    const photography = document.querySelector(".photography");
+    for (const photo of photos) {
+        photography.innerHTML += `<div>
+            <a href="/image-viewer/photography/${photo}">
+                <img src="images/photography/thumbnails/${photo}" height="220" width="320">
+            </a>
+        </div>`
+    }
+</script>
+
+</html>

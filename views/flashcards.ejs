@@ -1,0 +1,62 @@
+<%- include("templates/head-1") -%>
+Mario Hanina
+<%- include("templates/head-2") -%>
+
+<body>
+
+    <%- include("templates/navbar") -%>
+
+    <section>
+
+        <h1>Welcome to the Spanish Flashcards App.</h1>
+        <h2>Choose a category you would like to practice:</h2>
+
+        <div class="flashcards-categories"></div>
+
+    </section>
+
+    <%- include("templates/copyright") -%>
+
+    <script src="/scripts/dictionary.js"></script>
+
+    <script>
+
+        const flashcardsCategories = document.querySelector(".flashcards-categories");
+        function createCategory(word, score, listLength) {
+
+            let displayWord = "";
+            for (let i = 0; i < word.length; i++) {
+                if (word[i] == word[i].toUpperCase()) displayWord += " ";
+                if (i === 0) {
+                    displayWord += word[i].toUpperCase();
+                } else {
+                    displayWord += word[i];
+                }
+            }
+
+            flashcardsCategories.innerHTML += `<a href="/apps/flashcards/${word}">
+                <div>
+                    <h3>${displayWord}</h3>
+                    <span id="${word}">Score: ${score}/${listLength}</span>
+                </div>
+            </a>`;
+        }
+
+        for (const key of Object.keys(dictionary)) {
+            let score;
+            if (!localStorage.getItem(key)) {
+                score = 0;
+            } else {
+                const guessedWords = JSON.parse(localStorage.getItem(key))
+                const unguessedWords = dictionary[key].filter(x => (!guessedWords.includes(x.question[0])))
+                score = dictionary[key].length - unguessedWords.length;
+            }
+
+            createCategory(key, score, dictionary[key].length)
+        }
+
+    </script>
+
+</body>
+
+</html>

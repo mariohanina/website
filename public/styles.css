@@ -1,0 +1,314 @@
+/* Navbar */
+nav {
+    background-color: var(--nav-color);
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 2rem;
+}
+
+nav a:first-child {
+    font-weight: bold;
+}
+
+/* Copyright */
+.copyright {
+    background-color: var(--nav-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    align-items: center;
+}
+
+.copyright img {
+    border: none;
+    height: 40px;
+    width: auto;
+    padding-left: 2rem;
+}
+
+@media (max-width: 576px) {
+    .copyright img {
+        height: 30px;
+        padding-left: 1rem;
+    }
+
+    .copyright span {
+        font-size: 0.75rem;
+    }
+}
+
+/* ------------------------------------- MAIN PAGE ------------------------------------- */
+/* Intro Section */
+.intro-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.profile-picture {
+    max-width: 16rem;
+}
+
+.intro-wrapper h2 {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.intro-wrapper p {
+    text-align: justify;
+    max-width: 28rem;
+}
+
+@media (max-width: 768px) {
+    .profile-picture {
+        max-width: 26rem;
+    }
+
+    .intro-wrapper h2 {
+        text-align: center;
+    }
+}
+
+/* Art Section and Apps Section*/
+.art-categories,
+.app-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+
+    .art-categories,
+    .app-wrapper {
+        width: 75%;
+        margin: auto;
+    }
+}
+
+.art-categories div,
+.app-wrapper div {
+    flex: 1;
+    min-width: 300px;
+}
+
+.art-categories div div,
+.app-wrapper div div {
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.art-categories img,
+.app-wrapper img {
+    border: none;
+    vertical-align: bottom;
+    transition: 0.2s;
+}
+
+.art-categories img:hover,
+.app-wrapper img:hover {
+    scale: 1.1;
+}
+
+/* Contact Section */
+.contact-form {
+    max-width: 48rem;
+    margin: auto;
+}
+
+.contact-form button {
+    display: block;
+    width: 100px;
+    margin: 2.4rem auto 0;
+}
+
+/* ----------------------------------------------------------------------------------------- */
+
+/* ------------------------------------- PHOTO GALLERY ------------------------------------- */
+.photography {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.photography div {
+    max-width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.photography img {
+    border: none;
+    vertical-align: bottom;
+    object-fit: cover;
+    transition: 0.2s;
+}
+
+.photography img:hover {
+    scale: 1.1;
+    transition: 0.2s;
+}
+
+@media (max-width: 1200px) {
+
+    .photography {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .photography {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .photography {
+        grid-template-columns: 1fr;
+    }
+
+    .photography img {
+        height: auto;
+    }
+}
+
+/* ----------------------------------------------------------------------------------------- */
+
+/* ------------------------------------- ART GALLERY ------------------------------------- */
+.artwork {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.artwork div {
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.artwork img {
+    border: none;
+    transition: 0.2s;
+}
+
+.artwork img:hover {
+    scale: 1.1;
+}
+
+/* ----------------------------------------------------------------------------------------- */
+
+/* ------------------------------------- Image Display ------------------------------------- */
+.image-viewer-body {
+    overflow: hidden;
+}
+
+#image-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    cursor: grab;
+    background-color: var(--nav-color);
+}
+
+#image-container:active {
+    cursor: grabbing;
+}
+
+.display-area {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.display-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: none;
+}
+
+.ui {
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+}
+
+.ui>button {
+    margin: 0.4rem 0.4rem 0;
+}
+
+.ui>div>button {
+    margin: 0.4rem 0.4rem 0 0;
+}
+
+.ui button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    padding: 0.2rem;
+    opacity: 0.5;
+    font-weight: 900;
+}
+
+.ui button:hover {
+    opacity: 1;
+    background-color: var(--main-bg-color);
+}
+
+/* ----------------------------------------------------------------------------------------- */
+
+/* ------------------------------------- FLASHCARDS APP ------------------------------------- */
+
+.flashcards-categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.flashcards-categories a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8rem;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    transition: 0.2s;
+}
+
+.flashcards-categories a:hover {
+    background-color: var(--tertiary-bg-color);
+}
+
+.flashcards-categories span,
+.flashcards-categories h3 {
+    display: block;
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+
+    .flashcards-categories {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .flashcards-categories {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .flashcards-categories {
+        grid-template-columns: 1fr;
+    }
+}
