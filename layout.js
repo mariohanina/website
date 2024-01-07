@@ -1,8 +1,6 @@
 const fs = require('fs');
 const sizeOf = require("image-size");
 
-
-
 module.exports.createAtrwork = () => {
     const artworkPics = fs.readdirSync('public/images/drawings/thumbnails');
     let embeddedArtwork = "";
@@ -26,51 +24,3 @@ module.exports.createAtrwork = () => {
 
     return embeddedArtwork;
 }
-
-// module.exports.createPhotos = () => {
-//     const photos = fs.readdirSync('public/images/photography/thumbnails');
-//     let embeddedPhotos = "";
-
-//     for (const image of photos) {
-//         embeddedPhotos += `<div>
-//             <a href="/image-viewer/photography/${image}">
-//                 <img src="images/photography/thumbnails/${image}" height="220" width="320">
-//             </a>
-//         </div>`;
-//     }
-
-//     return embeddedPhotos;
-// }
-
-// module.exports.createFlashcardsCategories = () => {
-//     const FlashcardsCategories = fs.readdirSync('public/flashcards-dictionary');
-//     let embeddedFlashcardsCategories = "";
-
-//     for (const category of FlashcardsCategories) {
-
-//         let word = category.replace(".js", "");
-//         let displayWord = word.replaceAll("-", " ");
-//         displayWord = word.replace(word[0], word[0].toUpperCase());
-
-//         embeddedFlashcardsCategories += `<a href="/apps/flashcards/${word}">
-//             <div>
-//                 <h3>${displayWord}</h3>
-//                 <span id="${word}"></span>
-//             </div>
-//         </a>`;
-//     }
-
-//     return embeddedFlashcardsCategories;
-// }
-
-// module.exports.readFlashcardsCategories = () => {
-//     const FlashcardsCategories = fs.readdirSync('public/flashcards-dictionary');
-
-//     let listOfDictionaries = "";
-
-//     for (const category of FlashcardsCategories) {
-//         listOfDictionaries += `<script src="/flashcards-dictionary/${category}"></script>`;
-//     }
-
-//     return listOfDictionaries;
-// }

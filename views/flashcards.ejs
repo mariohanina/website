@@ -21,6 +21,8 @@ Mario Hanina
 
     <script>
 
+        // localStorage.setItem("numbers", '["Uno", "Dos", "Tres", "Cuatro", "Cinco"]');
+
         const flashcardsCategories = document.querySelector(".flashcards-categories");
         function createCategory(word, score, listLength) {
 
@@ -42,17 +44,25 @@ Mario Hanina
             </a>`;
         }
 
-        for (const key of Object.keys(dictionary)) {
+        for (const listName of Object.keys(dictionary)) {
+
+            const wordList = Object.keys(dictionary[listName])
             let score;
-            if (!localStorage.getItem(key)) {
+
+            if (!localStorage.getItem(listName)) {
                 score = 0;
             } else {
-                const guessedWords = JSON.parse(localStorage.getItem(key))
-                const unguessedWords = dictionary[key].filter(x => (!guessedWords.includes(x.question[0])))
-                score = dictionary[key].length - unguessedWords.length;
+                const guessedWords = JSON.parse(localStorage.getItem(listName))
+                const unguessedWords = [];
+
+                for (const word of wordList) {
+                    if (!guessedWords.includes(word)) unguessedWords.push(word)
+                }
+
+                score = wordList.length - unguessedWords.length;
             }
 
-            createCategory(key, score, dictionary[key].length)
+            createCategory(listName, score, wordList.length)
         }
 
     </script>

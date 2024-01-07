@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("templates/head-1") -%>
+Art Gallery
+<%- include("templates/head-2") -%>
+
+<body>
+
+    <%- include("templates/navbar") -%>
+
+    <section>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h1 id="question">Question</h1>
+                    <h1 id="score">Score</h1>
+                    <input type="text" name="" id="">
+                </div>
+                <div class="card-back">
+                    <h1 id="answer">Answer</h1>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button>reset progress</button>
+            <button>reveal answer</button>
+            <button>Done</button>
+        </div>
+    </section>
+
+    <%- include("templates/copyright") -%>
+
+    <script src="/scripts/dictionary.js"></script>
+
+    <script>
+        const urlParam = '<%- urlParam %>';
+        const wordCategory = dictionary[urlParam];
+        const wordList = Object.keys(dictionary[urlParam]);
+        const question = document.querySelector("#question");
+        const displayScore = document.querySelector("#score");
+        const answer = document.querySelector("#answer");
+        let unwatedLetters = ["?", "!", " / ", "/ ", " /", "/", "-"];
+
+
+        let guessed = localStorage.getItem(urlParam) ? JSON.parse(localStorage.getItem(urlParam)) : [];
+        let unguessed = [];
+        let score = 0;
+        let randomNumber = 0;
+
+
+
+
+
+        function randomNum() {
+            let temp = Math.floor(Math.random() * unguessed.length);
+            if (temp === randomNumber && unguessed.length > 1) {
+                randomNum();
+            } else {
+                randomNumber = temp;
+            }
+        }
+
+        function seperateWords() {
+            for (const word of wordList) {
+                if (!guessed.includes(word)) unguessed.push(word);
+            }
+        }
+
+        function calculateScore() { score = wordList.length - unguessed.length; }
+        function updateQuestion() { question.textContent = unguessed[randomNumber]; }
+        function updateScore() { displayScore.textContent = score; }
+        function wordCleaner(word, letters) {
+            let output = word.toLowerCase().trim()
+            letters.forEach(letter => { output = output.replaceAll(letter, " ") });
+            return output.trim()
+        }
+
+        function checkAnswer() {
+            if (unguessed.length === 0) {
+                // modalNotify.css("display", "block");
+                console.log("game finished");
+            } else {
+                const answerList = wordCategory[unguessed[randomNumber]];
+                const cleanedAnswerList = answerList.map((word) => wordCleaner(word, unwatedLetters));
+
+                // Clean the user's answer
+                // var userAnswered = wordCleaner(input.val(), unwatedLetters)
+
+                // Remove the "enter" key event listener
+                // $(document).off('keypress');
+
+                // Display the correct/wrong modal depending on user's answer
+                // if (typoDetector(userAnswered, cleanedAnswer, uncleanedAnswer)) {
+                //     if (!(accuracy === 1)) {
+                //         modalMessage.text("The correct spelling is: " + misspelledWord)
+                //     }
+                //     modalCorrect.css("display", "block")
+                //     $(document).on('keypress', function (e) { if (e.which == 13) { procceedCorrect(); } });
+
+                // } else {
+                //     modalWrong.css("display", "block")
+                //     $(document).on('keypress', function (e) { if (e.which == 13) { procceedWrong(); } });
+                // }
+            }
+
+        }
+
+
+
+
+
+        seperateWords();
+        calculateScore();
+
+        if (unguessed.length > 0) {
+            randomNum();
+            updateQuestion();
+            updateScore();
+        } else {
+            updateScore();
+        }
+
+        checkAnswer()
+
+
+    </script>
+
+</body>
+
+</html>
