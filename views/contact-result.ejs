@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("templates/head-1") -%>
-Mario Hanina
-<%- include("templates/head-2") -%>
+<%- include("templates/head", {title: "Contact Me"}); %>
 
 <body>
 
@@ -15,7 +13,10 @@ Mario Hanina
         <a href="/"><button>Main Page</button></a>
     </section>
 
-    <%- include("templates/copyright") -%>
+    <%- include("templates/copyright", {
+        liSrc: "images/logos/linkedin.png", 
+        ghSrc: "images/logos/github.png"
+    }); %>
 
 </body>
 

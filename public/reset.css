@@ -5,6 +5,10 @@
     --tertiary-bg-color: rgb(20, 20, 20);
     --text-color: rgb(235, 235, 235);
     --border-color: rgb(235, 235, 235);
+    --main-theme-color: rgb(70, 30, 30);
+    --secondary-theme-color: rgb(110, 50, 50);
+    --form-color: rgb(40, 40, 40);
+    --form-effects-color: rgb(10, 10, 10);
 }
 
 /* ------------------------------------- css reset ------------------------------------- */
@@ -95,11 +99,10 @@ button {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 1.5rem;
-    font: inherit;
     vertical-align: baseline;
     font-family: 'Open Sans', sans-serif;
-    color: rgb(235, 235, 235);
+    color: var(--text-color);
+    box-sizing: border-box;
 }
 
 a {
@@ -116,23 +119,25 @@ body {
     justify-content: space-between;
 }
 
+/* TOO GENERAL */
 h1 {
     text-align: center;
-    font-size: 2.4rem;
-    margin-bottom: 4rem;
+    font-size: 2.2rem;
+    margin-bottom: 2.2rem;
     font-weight: bold;
 }
 
+/* TOO GENERAL */
 h2 {
     text-align: center;
-    font-size: 2rem;
-    margin-bottom: 3rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.8rem;
     font-weight: bold;
 }
 
 h3 {
     font-size: 1.4rem;
-    margin: 1rem 0;
+    margin: 1.4rem 0;
     font-weight: bold;
 }
 
@@ -161,6 +166,7 @@ section:nth-of-type(2n) {
     }
 }
 
+/* TOO GENERAL */
 img {
     width: 100%;
     border: 1px solid var(--border-color);
@@ -175,29 +181,28 @@ label {
 input,
 textarea {
     display: block;
-    width: 100%;
     margin-bottom: 1.2rem;
-    min-height: 1.8rem;
-    padding: 0.4rem;
-    background-color: var(--main-bg-color);
+    padding: 0.6rem 1.2rem;
+    transition: 0.2s;
+    background-color: var(--form-color);
     border: 1px solid var(--border-color);
 }
 
 input:focus,
 textarea:focus {
-    background-color: var(--nav-color);
+    background-color: var(--form-effects-color);
 }
 
 button {
     padding: 0.6rem 1.2rem;
-    background-color: var(--main-bg-color);
-    border: 1px solid var(--border-color);
     transition: 0.2s;
+    background-color: var(--form-color);
+    border: 1px solid var(--border-color);
 }
 
 button:hover {
     cursor: pointer;
-    background-color: var(--nav-color);
+    background-color: var(--form-effects-color);
 }
 
 /* ----------------------------------------------------------------------------------------- */

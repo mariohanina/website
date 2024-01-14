@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("templates/head-1") -%>
-Photo Gallery
-<%- include("templates/head-2") -%>
+<%- include("templates/head", {title: "Photo Gallery"}); %>
 
 <body>
 
@@ -17,7 +15,10 @@ Photo Gallery
 
     </section>
 
-    <%- include("templates/copyright") -%>
+    <%- include("templates/copyright", {
+        liSrc: "images/logos/linkedin.png", 
+        ghSrc: "images/logos/github.png"
+    }); %>
 
 </body>
 

@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("templates/head-1") -%>
-Art Gallery
-<%- include("templates/head-2") -%>
+<%- include("templates/head", {title: "Flashcards"}); %>
 
 <body>
 
     <%- include("templates/navbar") -%>
 
     <section>
+        <span id="score">Score</span>
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
-                    <h1 id="question">Question</h1>
-                    <h1 id="score">Score</h1>
-                    <input type="text" name="" id="">
+                    <span id="question">Question</span>
+                    <input type="text" name="" id="user-input">
                 </div>
                 <div class="card-back">
-                    <h1 id="answer">Answer</h1>
+                    <span id="answer">Answer</span>
+                    <span id="message">Message</span>
+                    <button id="continue">Continue</button>
                 </div>
             </div>
         </div>
 
-        <div>
-            <button>reset progress</button>
-            <button>reveal answer</button>
-            <button>Done</button>
+        <div
+            style="width: 100%; max-width: 600px; margin: auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <button id="reset" style="flex: 1;">reset progress</button>
+            <button id="reveal" style="flex: 1;">reveal answer</button>
+            <button id="check-answer" style="flex: 1;">Done</button>
         </div>
     </section>
 
-    <%- include("templates/copyright") -%>
+    <%- include("templates/copyright", {
+        liSrc: "../../images/logos/linkedin.png", 
+        ghSrc: "../../images/logos/github.png"
+    }); %>
 
     <script src="/scripts/dictionary.js"></script>
 
@@ -38,10 +42,16 @@ Art Gallery
         const urlParam = '<%- urlParam %>';
         const wordCategory = dictionary[urlParam];
         const wordList = Object.keys(dictionary[urlParam]);
+        const unwatedLetters = ["?", "!", " / ", "/ ", " /", "/", "-"];
         const question = document.querySelector("#question");
         const displayScore = document.querySelector("#score");
         const answer = document.querySelector("#answer");
-        let unwatedLetters = ["?", "!", " / ", "/ ", " /", "/", "-"];
+        const userInput = document.getElementById("user-input");
+        const card = document.querySelector(".card-inner");
+        const continueButton = document.querySelector("#continue");
+        const checkAnswerButton = document.querySelector("#check-answer");
+        const revealButton = document.querySelector("#reveal");
+
 
 
         let guessed = localStorage.getItem(urlParam) ? JSON.parse(localStorage.getItem(urlParam)) : [];
@@ -63,19 +73,78 @@ Art Gallery
         }
 
         function seperateWords() {
+            unguessed = [];
             for (const word of wordList) {
                 if (!guessed.includes(word)) unguessed.push(word);
             }
         }
 
-        function calculateScore() { score = wordList.length - unguessed.length; }
+        function calculateScore() {
+            score = wordList.length - unguessed.length;
+            console.log("Calculating");
+            console.log(score);
+        }
         function updateQuestion() { question.textContent = unguessed[randomNumber]; }
+        function updateAnswer(misspelledWord) { answer.textContent = misspelledWord; }
         function updateScore() { displayScore.textContent = score; }
         function wordCleaner(word, letters) {
             let output = word.toLowerCase().trim()
             letters.forEach(letter => { output = output.replaceAll(letter, " ") });
             return output.trim()
         }
+
+
+
+
+
+        function typoDetector(userInput, cleanedAnswerList, answerList) {
+            let condition = false;
+            let accuracy = 0
+            let misspelledWord;
+
+            cleanedAnswerList.forEach((element, index) => {
+                const elementLength = element.length;
+                misspelledWord = answerList[index];
+                if (userInput.length === elementLength) {
+                    let count = 0;
+                    for (let index = 0; index < elementLength; index++) {
+                        if (userInput[index] === element[index]) count++;
+                    }
+                    accuracy = count / elementLength;
+
+                    if (accuracy > 0.89) {
+                        condition = true;
+                        return;
+                    }
+                }
+            })
+
+            return [condition, accuracy, misspelledWord];
+        }
+
+        function flipCard(degree) {
+            card.style.transform = `rotateY(${degree}deg)`;
+        }
+
+
+
+
+
+
+        function procceed() {
+            if (unguessed.length === 0) {
+                console.log("done did it");
+            } else {
+                randomNum();
+                updateQuestion();
+                flipCard(0);
+            }
+        }
+
+
+
+
+
 
         function checkAnswer() {
             if (unguessed.length === 0) {
@@ -84,25 +153,35 @@ Art Gallery
             } else {
                 const answerList = wordCategory[unguessed[randomNumber]];
                 const cleanedAnswerList = answerList.map((word) => wordCleaner(word, unwatedLetters));
-
-                // Clean the user's answer
-                // var userAnswered = wordCleaner(input.val(), unwatedLetters)
+                const cleanedUserInput = wordCleaner(userInput.value, unwatedLetters);
+                const [condition, accuracy, misspelledWord] = typoDetector(cleanedUserInput, cleanedAnswerList, answerList);
 
                 // Remove the "enter" key event listener
                 // $(document).off('keypress');
 
-                // Display the correct/wrong modal depending on user's answer
-                // if (typoDetector(userAnswered, cleanedAnswer, uncleanedAnswer)) {
-                //     if (!(accuracy === 1)) {
-                //         modalMessage.text("The correct spelling is: " + misspelledWord)
-                //     }
-                //     modalCorrect.css("display", "block")
-                //     $(document).on('keypress', function (e) { if (e.which == 13) { procceedCorrect(); } });
 
-                // } else {
-                //     modalWrong.css("display", "block")
-                //     $(document).on('keypress', function (e) { if (e.which == 13) { procceedWrong(); } });
-                // }
+                if (condition) {
+                    if (accuracy < 1) {
+                        // modalMessage.text("The correct spelling is: " + misspelledWord)
+                        console.log("The correct spelling is: " + misspelledWord)
+                    }
+                    // modalCorrect.css("display", "block")
+                    guessed.push(unguessed[randomNumber]);
+                    console.log(misspelledWord)
+                    seperateWords();
+                    localStorage.setItem(urlParam, JSON.stringify(guessed));
+                    updateAnswer(misspelledWord);
+                    calculateScore();
+                    updateScore();
+                    flipCard(180);
+                } else {
+                    // modalWrong.css("display", "block")
+                    console.log(misspelledWord)
+                    updateAnswer(misspelledWord);
+                    console.log("Wrongo")
+                    flipCard(180)
+                    // $(document).on('keypress', function (e) { if (e.which == 13) { procceedWrong(); } });
+                }
             }
 
         }
@@ -122,7 +201,9 @@ Art Gallery
             updateScore();
         }
 
-        checkAnswer()
+        checkAnswerButton.addEventListener("click", checkAnswer);
+        continueButton.addEventListener("click", procceed);
+        // checkAnswer()
 
 
     </script>

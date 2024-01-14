@@ -19,6 +19,7 @@ nav a:first-child {
     align-items: center;
 }
 
+/* UPDATE WITH RESET.CSS */
 .copyright img {
     border: none;
     height: 40px;
@@ -33,7 +34,7 @@ nav a:first-child {
     }
 
     .copyright span {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 }
 
@@ -48,9 +49,10 @@ nav a:first-child {
 }
 
 .profile-picture {
-    max-width: 16rem;
+    max-width: 250px;
 }
 
+/* UPDATE WITH RESET.CSS */
 .intro-wrapper h2 {
     text-align: left;
     margin-bottom: 1rem;
@@ -58,12 +60,12 @@ nav a:first-child {
 
 .intro-wrapper p {
     text-align: justify;
-    max-width: 28rem;
+    max-width: 450px;
 }
 
 @media (max-width: 768px) {
     .profile-picture {
-        max-width: 26rem;
+        max-width: 400px;
     }
 
     .intro-wrapper h2 {
@@ -101,6 +103,7 @@ nav a:first-child {
     overflow: hidden;
 }
 
+/* UPDATE WITH RESET.CSS */
 .art-categories img,
 .app-wrapper img {
     border: none;
@@ -115,14 +118,19 @@ nav a:first-child {
 
 /* Contact Section */
 .contact-form {
-    max-width: 48rem;
+    max-width: 750px;
     margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
 }
 
 .contact-form button {
     display: block;
     width: 100px;
-    margin: 2.4rem auto 0;
+    margin: 2.2rem auto 0;
 }
 
 /* ----------------------------------------------------------------------------------------- */
@@ -140,6 +148,7 @@ nav a:first-child {
     border: 1px solid var(--border-color);
 }
 
+/* UPDATE WITH RESET.CSS */
 .photography img {
     border: none;
     vertical-align: bottom;
@@ -191,6 +200,7 @@ nav a:first-child {
     border: 1px solid var(--border-color);
 }
 
+/* UPDATE WITH RESET.CSS */
 .artwork img {
     border: none;
     transition: 0.2s;
@@ -212,7 +222,7 @@ nav a:first-child {
     width: 100%;
     position: absolute;
     cursor: grab;
-    background-color: var(--nav-color);
+    background-color: black;
 }
 
 #image-container:active {
@@ -319,26 +329,23 @@ nav a:first-child {
 
 .card {
     max-width: 600px;
-    height: 400px;
-    /* background-color: transparent; */
-    padding: 4rem 2rem;
+    height: 250px;
     box-sizing: border-box;
-    margin: auto;
+    margin: 2rem auto;
     perspective: 1000px;
+
 }
 
 .card-inner {
     position: relative;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 10px lightblue;
+    border-radius: 10px;
     width: 100%;
     height: 100%;
-    transition: transform 0.6s;
+    transition: transform 1s;
     transform-style: preserve-3d;
-    border: 1px solid var(--border-color);
 }
-
-/* .card:hover .card-inner {
-    transform: rotateY(180deg);
-} */
 
 .card-front,
 .card-back {
@@ -347,6 +354,11 @@ nav a:first-child {
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .card-back {
