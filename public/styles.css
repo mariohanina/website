@@ -338,17 +338,30 @@ nav a:first-child {
 
 .card-inner {
     position: relative;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 0 10px lightblue;
-    border-radius: 10px;
+    /* border: 1px solid var(--border-color); */
+    box-shadow: 0 0 20px var(--main-theme-color);
+    background-color: var(--main-theme-color);
+    border-radius: 20px;
     width: 100%;
     height: 100%;
-    transition: transform 1s;
+    transition: transform 0.6s;
     transform-style: preserve-3d;
+}
+
+.card input,
+.card button {
+    border-radius: 10px;
+    background-color: rgba(100, 100, 100, 0.1);
+}
+
+.card input:hover,
+.card button:hover {
+    background-color: rgba(100, 100, 100, 0.4);
 }
 
 .card-front,
 .card-back {
+    border-radius: 20px;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -363,4 +376,74 @@ nav a:first-child {
 
 .card-back {
     transform: rotateY(180deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MODAL */
+.fading-modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Modal Animation */
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 0.3s;
+    animation-name: fadeIn;
+    animation-duration: 0.3s
+}
+
+.modal-content {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; */
+    background-color: var(--main-bg-color);
+    padding: 2rem;
+    margin: 2rem;
+    width: 100%;
+    max-width: 500px;
+    /* Modal animation */
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 0.3s;
+    animation-name: fadeIn;
+    animation-duration: 0.3s
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
 }

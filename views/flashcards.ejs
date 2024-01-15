@@ -1,10 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <%- include("templates/head", {title: "Flashcards"}); %>
 
 <body>
 
     <%- include("templates/navbar") -%>
 
-    <section>
+    <section style="flex-grow: 1;">
 
         <h1>Welcome to the Spanish Flashcards App.</h1>
         <h2>Choose a category you would like to practice:</h2>
@@ -21,8 +24,21 @@
     <script src="/scripts/dictionary.js"></script>
 
     <script>
+        // var perfEntries = performance.getEntriesByType("navigation");
 
-        // localStorage.setItem("numbers", '["Uno", "Dos", "Tres", "Cuatro", "Cinco"]');
+        // if (perfEntries[0].type === "back_forward") {
+        //     location.reload();
+        // }
+        // if (performance.navigation.type == 2) {
+        //     location.reload(true);
+        // }
+        (function () {
+            window.onpageshow = function (event) {
+                if (event.persisted) {
+                    window.location.reload();
+                }
+            };
+        })();
 
         const flashcardsCategories = document.querySelector(".flashcards-categories");
         function createCategory(word, score, listLength) {
