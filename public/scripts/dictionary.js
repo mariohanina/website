@@ -71,7 +71,7 @@ dictionary = {
         "Morado/Morada": ["Purple"],
         "Rosa/Rosado": ["Pink"],
         "Naranja": ["Orange"],
-        "Gris": ["Grey"]
+        "Gris": ["Grey"],
     }, animals: {
         "El gato": ["Cat"],
         "El perro": ["Dog"],

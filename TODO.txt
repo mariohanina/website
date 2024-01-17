@@ -1,10 +1,21 @@
-MAKE THE IMAGE VIEWER APP ONLY PAN WHEN PORTIONS OF THE IMAGE ARE INVISIBLE
+TODO(s):
+IMAGE VIEWER
+Prevent the Image Viewer from panning beyond the edge of the image.
+Add buttons for the Image Viewer to Navigate throught the images even when inside the viewer.
+Add Pinch in/out and double tap functionality. IMPORTANT!
 
-CREATE THE APPS
+APPS
+Create the Stocks App.
+Make Aesthetic Adjustments to the Flashcards Card.
+Fix the "the" problem in the game.
+Add Enter Key Functionality.
+update the dictionary.
 
-Fix the Navbar
+GENERAL
+Fix the Navbar.
+Clean up the code.
+Make aesthetic adjustments.
+Add Margins.
 
-Fix Image VIEWER
-
-WHEN USING ROUTE PARAMETERS WITH NODE.JS, WE HAVE TO START LINKS AND URLS WITH A LEADING /
-
+NOTES:
+When using Route Parameters with Node.js, we have to start links and URLs with a leading "/".

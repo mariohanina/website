@@ -9,8 +9,8 @@
 
     <section style="flex-grow: 1;">
 
-        <h1>Welcome to the Spanish Flashcards App.</h1>
-        <h2>Choose a category you would like to practice:</h2>
+        <h1>The Spanish Flashcards App.</h1>
+        <p>Choose a word category and start playing:</p>
 
         <div class="flashcards-categories"></div>
 
@@ -55,7 +55,7 @@
 
             flashcardsCategories.innerHTML += `<a href="/apps/flashcards/${word}">
                 <div>
-                    <h3>${displayWord}</h3>
+                    <span class="large-text">${displayWord}</span>
                     <span id="${word}">Score: ${score}/${listLength}</span>
                 </div>
             </a>`;

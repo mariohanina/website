@@ -14,12 +14,15 @@
             <img class="display-image" src=<%= imageSource %>>
         </div>
 
+    </div>
+
+    <div style="display: flex; justify-content: end;">
         <div class="ui">
             <a href=<%= closeButtonLink %>><button id="close" title="Close">&#x2715</button></a>
-            <div><button id="zoom-out" title="Zoom out">&#8722;</button><button id="zoom-in"
-                    title="Zoom in">+</button><button id="zoom-original" title="Fit to screen">&#128269;</button></div>
+            <button id="zoom-in" title="Zoom in">+</button>
+            <button id="zoom-out" title="Zoom out">&#8722;</button>
+            <button id="zoom-original" title="Fit to screen">&#128269;</button>
         </div>
-
     </div>
 
     <script src="/scripts/image-displayer.js"></script>

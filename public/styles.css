@@ -245,17 +245,21 @@ nav a:first-child {
 .ui {
     position: fixed;
     display: flex;
-    width: 100vw;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
-.ui>button {
-    margin: 0.4rem 0.4rem 0;
+@media (max-width: 600px) {
+
+    .ui {
+        flex-direction: row-reverse;
+    }
 }
 
-.ui>div>button {
-    margin: 0.4rem 0.4rem 0 0;
+.ui>* {
+    margin-top: 5px;
+    margin-right: 5px;
 }
+
 
 .ui button {
     width: 40px;
@@ -296,10 +300,14 @@ nav a:first-child {
     background-color: var(--tertiary-bg-color);
 }
 
-.flashcards-categories span,
-.flashcards-categories h3 {
+.flashcards-categories span {
     display: block;
     text-align: center;
+}
+
+.large-text {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
 }
 
 @media (max-width: 1200px) {
@@ -361,6 +369,7 @@ nav a:first-child {
 
 .card-front,
 .card-back {
+    padding: 1rem;
     border-radius: 20px;
     position: absolute;
     width: 100%;
@@ -371,11 +380,15 @@ nav a:first-child {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
 }
 
 .card-back {
     transform: rotateY(180deg);
+}
+
+.larger-text {
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 
@@ -412,10 +425,11 @@ nav a:first-child {
 }
 
 .modal-content {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative; */
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: center;
+    /* position: relative; */
     background-color: var(--main-bg-color);
     padding: 2rem;
     margin: 2rem;

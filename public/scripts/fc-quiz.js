@@ -1,33 +1,27 @@
 const wordCategory = dictionary[urlParam];
 const wordList = Object.keys(dictionary[urlParam]);
-const unwatedLetters = ["?", "!", " / ", "/ ", " /", "/", "-"];
+const unwatedLetters = ["?", "!", " / ", "/ ", " /", "/", "-", "the"];
 
 const htmlScore = document.querySelector("#score");
-
 const question = document.querySelector("#question");
 const userInput = document.getElementById("user-input");
-
 const answer = document.querySelector("#answer");
 const message = document.querySelector("#message");
 const continueButton = document.querySelector("#continue");
-
 const card = document.querySelector(".card-inner");
 const cardBack = document.querySelector(".card-back");
-
 const checkAnswerButton = document.querySelector("#check-answer");
 const revealButton = document.querySelector("#reveal");
 const resetButton = document.querySelector("#reset");
-
 const modal = document.querySelector("#modal");
 const close = document.querySelector("#close");
-
 
 let guessed = localStorage.getItem(urlParam) ? JSON.parse(localStorage.getItem(urlParam)) : [];
 let unguessed = [];
 let score = 0;
 let randomNumber = 0;
 
-
+// GENERATE A RANDOM NUMBER
 function randomNum() {
     let temp = Math.floor(Math.random() * unguessed.length);
     if (temp === randomNumber && unguessed.length > 1) {
@@ -37,6 +31,7 @@ function randomNum() {
     }
 }
 
+// SEPERATE GUESSED WORDS FROM UNGUESSED ONES
 function seperateWords() {
     unguessed = [];
     for (const word of wordList) {
@@ -44,23 +39,29 @@ function seperateWords() {
     }
 }
 
+// CALCULATE THE SCORE
 function calculateScore() { score = wordList.length - unguessed.length; }
-function updateQuestion(content) { question.textContent = content; }
-function updateAnswer(misspelledWord) { answer.textContent = misspelledWord; }
+// UPDATE THE SCORE ON THE WEBSITE
 function updateScore() { htmlScore.textContent = `Score: ${score}/${wordList.length}`; }
+// UPDATE THE HTML QUESTION ELEMENT
+function updateQuestion(content) { question.textContent = content; }
+// UPDATE THE HTML ANSWER ELEMENT
+function updateAnswer(content) { answer.textContent = content; }
 
+// REMOVE UNWANTED CHARACTERS FROM THE WORDS SUCH AS ?, -, AND /
 function wordCleaner(word, letters) {
     let output = word.toLowerCase().trim();
     letters.forEach(letter => { output = output.replaceAll(letter, " ") });
     return output.trim();
 }
 
+// FIND OUT IF THE ANSWER IS CORRECT AND DETECT MINOR TYPOES
 function typoDetector(userInput, cleanedAnswerList, answerList) {
     let condition = false;
     let accuracy = 0;
     let misspelledWord = answerList[0];
 
-    cleanedAnswerList.forEach((element, index) => {
+    for (const [index, element] of cleanedAnswerList.entries()) {
         const elementLength = element.length;
         if (userInput.length === elementLength) {
             let count = 0;
@@ -72,78 +73,76 @@ function typoDetector(userInput, cleanedAnswerList, answerList) {
             if (accuracy >= 0.9) {
                 misspelledWord = answerList[index];
                 condition = true;
-                return;
+                break;
             }
         }
-    })
+    }
 
     return [condition, accuracy, misspelledWord];
 }
 
+// CARD FLIPPING ANIMATION
 function flipCard(degree) {
     card.style.transform = `rotateY(${degree}deg)`;
 }
 
+// CHECK IF ANSWER IS CORRECT
 function checkAnswer() {
-
     if (unguessed.length === 0) {
         modal.style.display = "flex";
     } else {
         removeEvents();
+
         const answerList = wordCategory[unguessed[randomNumber]];
         const cleanedAnswerList = answerList.map((word) => wordCleaner(word, unwatedLetters));
         const cleanedUserInput = wordCleaner(userInput.value, unwatedLetters);
-        const [condition, accuracy, misspelledWord] = typoDetector(cleanedUserInput, cleanedAnswerList, answerList);
+        const [condition, accuracy, misspelledWord] =
+            typoDetector(cleanedUserInput, cleanedAnswerList, answerList);
 
         if (condition) {
-            if (accuracy < 1) {
-                message.textContent = "The correct spelling is: " + misspelledWord;
-            } else {
-                message.textContent = "Perfect!"
-            }
+            // If user answered correctly, save their progress and update the screen
             guessed.push(unguessed[randomNumber]);
-            seperateWords();
             localStorage.setItem(urlParam, JSON.stringify(guessed));
-            updateAnswer(misspelledWord);
+            seperateWords();
             calculateScore();
+
+            message.textContent = accuracy < 1 ?
+                `Tiny mistake! You typed: "${userInput.value}"` : "Perfect!";
+            updateAnswer(misspelledWord);
             updateScore();
             cardBack.style.backgroundColor = "#3D664B";
+
             flipCard(180);
         } else {
-            message.textContent = "Wrong Answer!";
+            // Otherwise, notify them, and update the screen.
+            message.textContent = userInput.value === "" ?
+                `You didn't type anything!` : `Wrong answer! You typed: "${userInput.value}"`;
             updateAnswer(misspelledWord);
             cardBack.style.backgroundColor = "#99352E";
-            flipCard(180)
+
+            flipCard(180);
         }
     }
 
 }
 
+// RESET THE CARD AND NOTIFY THE USER OF THE NEXT PHASE IN THE GAME
 function procceed() {
+    addEvents();
+
+    userInput.value = "";
+    setTimeout(() => {
+        message.textContent = "";
+        cardBack.style.backgroundColor = "var(--main-theme-color)";
+    }, 200);
+
     if (unguessed.length === 0) {
-        addEvents();
-        userInput.value = "";
-        setTimeout(() => {
-            message.textContent = "";
-            cardBack.style.backgroundColor = "var(--main-theme-color)";
-        }, 200);
-
         updateQuestion("Game Over!");
-        flipCard(0);
-        // modal.style.display = "flex";
     } else {
-        // Reset everything
-        addEvents();
-        userInput.value = "";
-        setTimeout(() => {
-            message.textContent = "";
-            cardBack.style.backgroundColor = "var(--main-theme-color)";
-        }, 200);
-
         randomNum();
         updateQuestion(unguessed[randomNumber]);
-        flipCard(0);
     }
+    flipCard(0);
 }
 
 function revealAnswer() {
@@ -156,23 +155,15 @@ function revealAnswer() {
 
 function resetProgress() {
     guessed = [];
-    seperateWords();
     localStorage.setItem(urlParam, JSON.stringify(guessed));
+    seperateWords();
+    calculateScore();
     randomNum();
     updateQuestion(unguessed[randomNumber]);
-    calculateScore();
     updateScore();
 }
 
-function removeEvents() {
-    checkAnswerButton.style.opacity = "0.3";
-    revealButton.style.opacity = "0.3";
-    resetButton.style.opacity = "0.3";
-    checkAnswerButton.removeEventListener("click", checkAnswer);
-    revealButton.removeEventListener("click", revealAnswer);
-    resetButton.removeEventListener("click", resetProgress);
-}
-
+// ADD ALL EVENTS AND MAKE THEM CLEARLY VISIBLE
 function addEvents() {
     checkAnswerButton.style.opacity = "1";
     revealButton.style.opacity = "1";
@@ -182,7 +173,17 @@ function addEvents() {
     resetButton.addEventListener("click", resetProgress);
 }
 
+// REMOVE ALL EVENTS AND MAKE THEM TRANSLUCENT
+function removeEvents() {
+    checkAnswerButton.style.opacity = "0.3";
+    revealButton.style.opacity = "0.3";
+    resetButton.style.opacity = "0.3";
+    checkAnswerButton.removeEventListener("click", checkAnswer);
+    revealButton.removeEventListener("click", revealAnswer);
+    resetButton.removeEventListener("click", resetProgress);
+}
 
+// START UP THE GAME
 seperateWords();
 calculateScore();
 
@@ -198,4 +199,13 @@ if (unguessed.length > 0) {
 
 addEvents();
 continueButton.addEventListener("click", procceed);
-close.addEventListener("click", () => { modal.style.display = "none"; })
+close.addEventListener("click", () => { modal.style.display = "none"; });
+
+
+(function () {
+    window.onpageshow = function (event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+})();

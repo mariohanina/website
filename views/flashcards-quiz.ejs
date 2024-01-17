@@ -8,16 +8,20 @@
     <%- include("templates/navbar") -%>
 
     <section style="flex-grow: 1;">
-        <span id="score">Score</span>
+        <div style="display: flex; justify-content: space-between;">
+            <a href="/apps/flashcards" style="font-size: 2rem;">&#8592;</a>
+            <span id="score" style="margin-left: 1rem;">Score</span>
+        </div>
+
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
-                    <span id="question">Question</span>
+                    <span class="larger-text" id="question">Question</span>
                     <input style="width: 80%;" type="text" name="" id="user-input" placeholder="Type here">
                 </div>
                 <div class="card-back">
-                    <span id="answer">Answer</span>
-                    <span id="message">Message</span>
+                    <span class="larger-text" id="answer"></span>
+                    <span id="message"></span>
                     <button id="continue">Continue</button>
                 </div>
             </div>
@@ -29,7 +33,10 @@
             <button id="reveal" style="flex: 1;">reveal answer</button>
             <button id="check-answer" style="flex: 1;">Done</button>
         </div>
+
     </section>
+
+
 
     <div id="modal" class="fading-modal">
         <div class="modal-content">

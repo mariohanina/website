@@ -151,6 +151,11 @@ textarea {
     font-size: 1.2rem;
 }
 
+p,
+span {
+    margin-bottom: 1.2rem;
+}
+
 section {
     padding: 4rem;
     background-color: var(--main-bg-color);

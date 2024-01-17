@@ -22,6 +22,10 @@ const pan = ({ state, originX, originY }) => {
         getMatrix({ scale: state.transformation.scale, translateX: state.transformation.translateX, translateY: state.transformation.translateY });
 };
 
+const MakeZoomInfo = (state) => ({
+    zoomInfo: () => (state.transformation.scale),
+});
+
 const makePan = (state) => ({
     panBy: ({ originX, originY }) => pan({ state, originX, originY }),
     panTo: ({ originX, originY, scale }) => {
@@ -63,13 +67,13 @@ const renderer = ({ minScale, maxScale, element, scaleSensitivity = 10 }) => {
             scale: 1
         },
     };
-    return Object.assign({}, makeZoom(state), makePan(state));
+    return Object.assign({}, makeZoom(state), makePan(state), MakeZoomInfo(state));
 };
 
 
 
 const container = document.getElementById("image-container");
-const instance = renderer({ minScale: 1, maxScale: 5, element: container.children[0], scaleSensitivity: 50 });
+const instance = renderer({ minScale: 1, maxScale: 5, element: container.children[0], scaleSensitivity: 30 });
 document.querySelector("#zoom-in").addEventListener("click", () => {
     instance.zoom({
         deltaScale: 5,
@@ -85,9 +89,6 @@ document.querySelector("#zoom-out").addEventListener("click", () => {
     });
 });
 container.addEventListener("wheel", (event) => {
-    if (!event.ctrlKey) {
-        return;
-    }
     event.preventDefault();
     instance.zoom({
         deltaScale: Math.sign(event.deltaY) > 0 ? -1 : 1,
@@ -104,14 +105,19 @@ document.querySelector("#zoom-original").addEventListener("click", () => {
     });
 });
 container.addEventListener("dblclick", (event) => {
-    if (!event.ctrlKey) {
-        return;
+    if (instance.zoomInfo() === 1) {
+        instance.zoom({
+            deltaScale: 50,
+            x: event.pageX,
+            y: event.pageY
+        });
+    } else {
+        instance.panTo({
+            originX: 0,
+            originY: 0,
+            scale: 1,
+        });
     }
-    instance.panTo({
-        originX: 0,
-        originY: 0,
-        scale: 1,
-    });
 });
 container.addEventListener("mousemove", (event) => {
     if (!(event.buttons & 1 || (event.buttons === undefined && event.which == 1))) {
