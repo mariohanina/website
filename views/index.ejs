@@ -9,9 +9,9 @@
     <%- include("templates/navbar") -%>
 
     <section id="intro">
-        <h1>Hello visitor, I'm Mario.</h1>
+        <h1 class="text-center">Hello visitor, I'm Mario.</h1>
         <div class="intro-wrapper">
-            <img class="profile-picture" src="images/profile.jpg" alt="A picture of Me">
+            <img class="profile-picture border" src="images/profile.jpg" alt="A picture of Me">
             <div>
                 <h2>Welcome to my website!</h2>
                 <p>I enjoy software development, drawing, painting, and photography.
@@ -21,7 +21,7 @@
     </section>
 
     <section id="art">
-        <h2>Art</h2>
+        <h2 class="text-center">Art</h2>
         <div class="art-categories">
             <div>
                 <a href="/art-gallery#dry-media">
@@ -59,7 +59,7 @@
 
     <!-- I NEED TO ADD LINKS TO THIS SECTION AND ALSO UPDATE THE GRAPHICS -->
     <section id="software">
-        <h2>Software</h2>
+        <h2 class="text-center">Software</h2>
         <div class="app-wrapper">
             <div>
                 <a href="/apps/flashcards">
@@ -88,7 +88,7 @@
     </section>
 
     <section id="contact">
-        <h2>Contact me</h2>
+        <h2 class="text-center">Contact me</h2>
         <form class="contact-form" action="/" method="post">
             <label for="email">Email: </label>
             <input type="text" id="email" name="email">
@@ -100,7 +100,7 @@
             <input type="text" id="subject" name="subject">
 
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="10"></textarea>
+            <textarea id="message" name="message" rows="5"></textarea>
 
             <button type="submit">Send</button>
         </form>

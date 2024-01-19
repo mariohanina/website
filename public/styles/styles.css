@@ -17,25 +17,18 @@ nav a:first-child {
     justify-content: space-between;
     padding: 1rem 2rem;
     align-items: center;
+    margin-bottom: 0;
 }
 
-/* UPDATE WITH RESET.CSS */
+.copyright div,
+.copyright span {
+    margin-bottom: 0;
+}
+
 .copyright img {
-    border: none;
     height: 40px;
     width: auto;
     padding-left: 2rem;
-}
-
-@media (max-width: 576px) {
-    .copyright img {
-        height: 30px;
-        padding-left: 1rem;
-    }
-
-    .copyright span {
-        font-size: 0.8rem;
-    }
 }
 
 /* ------------------------------------- MAIN PAGE ------------------------------------- */
@@ -49,12 +42,11 @@ nav a:first-child {
 }
 
 .profile-picture {
-    max-width: 250px;
+    max-width: 200px;
 }
 
-/* UPDATE WITH RESET.CSS */
+/* Turn into a different element? !IMPORTANT !IMPORTANT !IMPORTANT !IMPORTANT !IMPORTANT */
 .intro-wrapper h2 {
-    text-align: left;
     margin-bottom: 1rem;
 }
 
@@ -63,38 +55,21 @@ nav a:first-child {
     max-width: 450px;
 }
 
-@media (max-width: 768px) {
-    .profile-picture {
-        max-width: 400px;
-    }
-
-    .intro-wrapper h2 {
-        text-align: center;
-    }
-}
-
 /* Art Section and Apps Section*/
 .art-categories,
 .app-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem;
-}
-
-@media (min-width: 768px) {
-
-    .art-categories,
-    .app-wrapper {
-        width: 75%;
-        margin: auto;
-    }
+    gap: 2.25rem;
+    width: 75%;
+    margin: auto;
 }
 
 .art-categories div,
 .app-wrapper div {
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
 }
 
 .art-categories div div,
@@ -103,10 +78,8 @@ nav a:first-child {
     overflow: hidden;
 }
 
-/* UPDATE WITH RESET.CSS */
 .art-categories img,
 .app-wrapper img {
-    border: none;
     vertical-align: bottom;
     transition: 0.2s;
 }
@@ -116,21 +89,32 @@ nav a:first-child {
     scale: 1.1;
 }
 
+/* MAKING CHANGES TO HTML ELEMENTS MARGINS !IMPORTANT !IMPORTANT !IMPORTANT !IMPORTANT !IMPORTANT */
+.art-categories>div,
+.art-categories>div>p,
+.app-wrapper>div,
+.app-wrapper>div>p {
+    margin: 0;
+}
+
 /* Contact Section */
 .contact-form {
     max-width: 750px;
     margin: auto;
 }
 
-.contact-form input,
+.contact-form input {
+    width: 100%;
+}
+
 .contact-form textarea {
     width: 100%;
+    margin-bottom: 2.25rem;
 }
 
 .contact-form button {
     display: block;
-    width: 100px;
-    margin: 2.2rem auto 0;
+    margin: auto;
 }
 
 /* ----------------------------------------------------------------------------------------- */
@@ -148,9 +132,7 @@ nav a:first-child {
     border: 1px solid var(--border-color);
 }
 
-/* UPDATE WITH RESET.CSS */
 .photography img {
-    border: none;
     vertical-align: bottom;
     object-fit: cover;
     transition: 0.2s;
@@ -159,31 +141,6 @@ nav a:first-child {
 .photography img:hover {
     scale: 1.1;
     transition: 0.2s;
-}
-
-@media (max-width: 1200px) {
-
-    .photography {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-@media (max-width: 992px) {
-
-    .photography {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 576px) {
-
-    .photography {
-        grid-template-columns: 1fr;
-    }
-
-    .photography img {
-        height: auto;
-    }
 }
 
 /* ----------------------------------------------------------------------------------------- */
@@ -200,9 +157,7 @@ nav a:first-child {
     border: 1px solid var(--border-color);
 }
 
-/* UPDATE WITH RESET.CSS */
 .artwork img {
-    border: none;
     transition: 0.2s;
 }
 
@@ -212,9 +167,14 @@ nav a:first-child {
 
 /* ----------------------------------------------------------------------------------------- */
 
-/* ------------------------------------- Image Display ------------------------------------- */
+/* ------------------------------------- Image VIEWER ------------------------------------- */
 .image-viewer-body {
     overflow: hidden;
+}
+
+.image-viewer-body * {
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #image-container {
@@ -239,20 +199,12 @@ nav a:first-child {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border: none;
 }
 
 .ui {
     position: fixed;
     display: flex;
     flex-direction: column;
-}
-
-@media (max-width: 600px) {
-
-    .ui {
-        flex-direction: row-reverse;
-    }
 }
 
 .ui>* {
@@ -264,11 +216,9 @@ nav a:first-child {
 .ui button {
     width: 40px;
     height: 40px;
-    border: none;
     border-radius: 50%;
     padding: 0.2rem;
     opacity: 0.5;
-    font-weight: 900;
 }
 
 .ui button:hover {
@@ -287,11 +237,7 @@ nav a:first-child {
 }
 
 .flashcards-categories a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 8rem;
-    padding: 1rem;
+    padding: 2rem 2rem 1rem;
     border: 1px solid var(--border-color);
     transition: 0.2s;
 }
@@ -306,29 +252,8 @@ nav a:first-child {
 }
 
 .large-text {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
-}
-
-@media (max-width: 1200px) {
-
-    .flashcards-categories {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-@media (max-width: 992px) {
-
-    .flashcards-categories {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 576px) {
-
-    .flashcards-categories {
-        grid-template-columns: 1fr;
-    }
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 /* ----------------------------------------------------------------------------------------- */
@@ -339,14 +264,13 @@ nav a:first-child {
     max-width: 600px;
     height: 250px;
     box-sizing: border-box;
-    margin: 2rem auto;
+    margin: 1rem auto;
     perspective: 1000px;
 
 }
 
 .card-inner {
     position: relative;
-    /* border: 1px solid var(--border-color); */
     box-shadow: 0 0 20px var(--main-theme-color);
     background-color: var(--main-theme-color);
     border-radius: 20px;
@@ -392,18 +316,6 @@ nav a:first-child {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* MODAL */
 .fading-modal {
     display: none;
@@ -427,9 +339,7 @@ nav a:first-child {
 .modal-content {
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: column; */
     justify-content: center;
-    /* position: relative; */
     background-color: var(--main-bg-color);
     padding: 2rem;
     margin: 2rem;
@@ -459,5 +369,69 @@ nav a:first-child {
 
     to {
         opacity: 1
+    }
+}
+
+/* ----------------------------------------------------------------------------------------- */
+
+/* ------------------------------------- MEDIA QUERIES ------------------------------------- */
+
+@media (max-width: 1200px) {
+
+    /* PHOTO GALLERY  &&  FLASHCARDS MAIN PAGE */
+    .photography,
+    .flashcards-categories {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+
+    /* PHOTO GALLERY  &&  FLASHCARDS MAIN PAGE */
+    .photography,
+    .flashcards-categories {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* MAIN SECTIONS */
+    .profile-picture {
+        max-width: 400px;
+    }
+
+    .intro-wrapper h2 {
+        text-align: center;
+    }
+
+    /* ART SECTIONS */
+    .art-categories,
+    .app-wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* COPYRIGHT BAR */
+    .copyright img {
+        height: 30px;
+        padding-left: 1rem;
+    }
+
+    /* PHOTO GALLERY  &&  FLASHCARDS MAIN PAGE */
+    .photography,
+    .flashcards-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .photography img {
+        height: auto;
+    }
+
+    /* IMAGE VIEWER */
+    .ui {
+        flex-direction: row-reverse;
     }
 }
