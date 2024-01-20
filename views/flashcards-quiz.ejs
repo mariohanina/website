@@ -8,30 +8,29 @@
     <%- include("templates/navbar") -%>
 
     <section style="flex-grow: 1;">
-        <div style="display: flex; justify-content: space-between;">
-            <a href="/apps/flashcards" style="font-size: 2rem;">&#8592;</a>
-            <span id="score" style="margin-left: 1rem;">Score</span>
+        <div class="app-bar">
+            <a class="no-decoration" href="/apps/flashcards">&#8592;</a>
+            <span id="score">Score</span>
         </div>
 
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
-                    <span class="larger-text" id="question">Question</span>
-                    <input style="width: 80%;" type="text" name="" id="user-input" placeholder="Type here">
+                    <span class="text-center larger-text" id="question">Question</span>
+                    <input type="text" name="user-input" id="user-input" placeholder="Type here">
                 </div>
                 <div class="card-back">
-                    <span class="larger-text" id="answer"></span>
-                    <span id="message"></span>
+                    <span class="text-center larger-text" id="answer"></span>
+                    <span class="text-center" id="message"></span>
                     <button id="continue">Continue</button>
                 </div>
             </div>
         </div>
 
-        <div
-            style="width: 100%; max-width: 600px; margin: auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-            <button id="reset" style="flex: 1;">reset progress</button>
-            <button id="reveal" style="flex: 1;">reveal answer</button>
-            <button id="check-answer" style="flex: 1;">Done</button>
+        <div class="fc-buttons-wrapper">
+            <button id="reset">reset progress</button>
+            <button id="reveal">reveal answer</button>
+            <button id="check-answer">Done</button>
         </div>
 
     </section>
@@ -40,8 +39,8 @@
 
     <div id="modal" class="fading-modal">
         <div class="modal-content">
-            <h2>Great job!</h2>
-            <p>You've guessed all the words, go back and try another category.</p>
+            <span class="larger-text">Great job!</span>
+            <span>You've guessed all the words, go back and try another category.</span>
             <button id="close">Close</button>
         </div>
     </div>

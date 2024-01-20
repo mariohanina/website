@@ -13,7 +13,7 @@
         <div class="intro-wrapper">
             <img class="profile-picture border" src="images/profile.jpg" alt="A picture of Me">
             <div>
-                <h2>Welcome to my website!</h2>
+                <span>Welcome to my website!</span>
                 <p>I enjoy software development, drawing, painting, and photography.
                     I created this website to have a place where I can share what I'm making with the you.</p>
             </div>
@@ -89,9 +89,9 @@
 
     <section id="contact">
         <h2 class="text-center">Contact me</h2>
-        <form class="contact-form" action="/" method="post">
+        <form class="contact-form" action="/" method="post" target="_blank">
             <label for="email">Email: </label>
-            <input type="text" id="email" name="email">
+            <input type="text" id="email" name="email" required>
 
             <label for="phoneNumber">Phone Number: </label>
             <input type="text" id="phoneNumber" name="phoneNumber">
@@ -100,7 +100,7 @@
             <input type="text" id="subject" name="subject">
 
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5"></textarea>
+            <textarea id="message" name="message" rows="5" required></textarea>
 
             <button type="submit">Send</button>
         </form>

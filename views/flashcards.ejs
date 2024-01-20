@@ -24,14 +24,6 @@
     <script src="/scripts/dictionary.js"></script>
 
     <script>
-        // var perfEntries = performance.getEntriesByType("navigation");
-
-        // if (perfEntries[0].type === "back_forward") {
-        //     location.reload();
-        // }
-        // if (performance.navigation.type == 2) {
-        //     location.reload(true);
-        // }
         (function () {
             window.onpageshow = function (event) {
                 if (event.persisted) {
@@ -53,7 +45,7 @@
                 }
             }
 
-            flashcardsCategories.innerHTML += `<a href="/apps/flashcards/${word}">
+            flashcardsCategories.innerHTML += `<a class="no-decoration" href="/apps/flashcards/${word}">
                     <span class="large-text">${displayWord}</span>
                     <span id="${word}">Score: ${score}/${listLength}</span>
             </a>`;

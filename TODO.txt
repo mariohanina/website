@@ -6,17 +6,15 @@ Add Pinch in/out. IMPORTANT!
 
 APPS
 Create the Stocks App.
-Make Aesthetic Adjustments to the Flashcards Card.
 Fix the "the" problem in the game.
 Add Enter Key Functionality.
 update the dictionary.
+Make Card text smaller on smaller screens
 
 GENERAL
 Fix the Navbar.
 Clean up the code.
-Fix Paddings, Margins, and Typography.
-Fix Art Gallery on small screens
-Add text decoration to some links
+Fix and Typography.
 
 NOTES:
 When using Route Parameters with Node.js, we have to start links and URLs with a leading "/".

@@ -2,13 +2,23 @@
     --nav-color: rgb(10, 10, 10);
     --main-bg-color: rgb(40, 40, 40);
     --secondary-bg-color: rgb(30, 30, 30);
+    /**/
     --tertiary-bg-color: rgb(20, 20, 20);
+    /**/
     --text-color: rgb(235, 235, 235);
     --border-color: rgb(235, 235, 235);
+    /**/
     --main-theme-color: rgb(20, 20, 20);
+    /**/
+    /**/
     --secondary-theme-color: rgb(110, 50, 50);
+    /**/
     --form-color: rgb(40, 40, 40);
     --form-effects-color: rgb(10, 10, 10);
+
+    --space-unit: 0.75rem;
+    --alt-space-unit: 0.5rem;
+    --font-size-unit: 0.5rem;
 }
 
 /* ------------------------------------- css reset ------------------------------------- */
@@ -16,9 +26,6 @@ html,
 body,
 div,
 span,
-applet,
-object,
-iframe,
 h1,
 h2,
 h3,
@@ -26,73 +33,12 @@ h4,
 h5,
 h6,
 p,
-blockquote,
-pre,
 a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
 img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
 form,
 label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
 nav,
-output,
-ruby,
 section,
-summary,
-time,
-mark,
-audio,
-video,
 input,
 textarea,
 button {
@@ -105,13 +51,6 @@ button {
     box-sizing: border-box;
 }
 
-a {
-    text-decoration: none;
-}
-
-/* ----------------------------------------------------------------------------------------- */
-
-
 body {
     min-height: 100vh;
     display: flex;
@@ -119,23 +58,15 @@ body {
     justify-content: space-between;
 }
 
-.text-center {
-    text-align: center;
-}
-
-.border {
-    border: 1px solid var(--border-color);
-}
-
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 3.75rem;
+    font-size: calc(var(--font-size-unit) * 5);
+    margin-bottom: calc(var(--space-unit) * 5);
     font-weight: bold;
 }
 
 h2 {
-    font-size: 2rem;
-    margin-bottom: 3rem;
+    font-size: calc(var(--font-size-unit) * 4);
+    margin-bottom: calc(var(--space-unit) * 4);
     font-weight: bold;
 }
 
@@ -143,9 +74,9 @@ h3,
 h4,
 h5,
 h6 {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-    font-weight: bold;
+    font-size: calc(var(--font-size-unit) * 3);
+    margin-bottom: calc(var(--space-unit) * 1);
+    font-weight: normal;
 }
 
 div,
@@ -153,22 +84,22 @@ p,
 input,
 span,
 textarea {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+    font-size: calc(var(--font-size-unit) * 2);
+    margin-bottom: calc(var(--space-unit) * 2);
 }
 
 label {
-    margin-bottom: 0.75rem;
+    font-size: calc(var(--font-size-unit) * 2);
+    margin-bottom: calc(var(--space-unit) * 1);
 }
-
 
 a,
 button {
-    font-size: 1rem;
+    font-size: calc(var(--font-size-unit) * 2);
 }
 
 section {
-    padding: 3.75rem;
+    padding: calc(var(--space-unit) * 5);
     background-color: var(--main-bg-color);
 }
 
@@ -178,7 +109,7 @@ section:nth-of-type(2n) {
 
 @media (max-width: 768px) {
     section {
-        padding: 3.75rem 2.25rem;
+        padding: calc(var(--space-unit) * 5) calc(var(--space-unit) * 3);
     }
 }
 
@@ -187,6 +118,7 @@ img {
 }
 
 /* ------------------------------------- FORM ELEMENTS ------------------------------------- */
+
 label {
     display: block;
 }
@@ -194,7 +126,7 @@ label {
 input,
 textarea {
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     transition: 0.2s;
     background-color: var(--form-color);
     border: 1px solid var(--border-color);
@@ -206,7 +138,7 @@ textarea:focus {
 }
 
 button {
-    padding: 0.5rem 1.5rem;
+    padding: calc(var(--space-unit) * 1) calc(var(--space-unit) * 3);
     transition: 0.2s;
     background-color: var(--form-color);
     border: 1px solid var(--border-color);
@@ -217,4 +149,16 @@ button:hover {
     background-color: var(--form-effects-color);
 }
 
-/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------- PREDEFINED CLASSES ------------------------------------- */
+
+.text-center {
+    text-align: center;
+}
+
+.border {
+    border: 1px solid var(--border-color);
+}
+
+.no-decoration {
+    text-decoration: none;
+}

@@ -1,0 +1,101 @@
+/* Navbar */
+nav {
+    background-color: var(--nav-color);
+    display: flex;
+    gap: calc(var(--alt-space-unit) * 4);
+    padding: calc(var(--alt-space-unit) * 2) calc(var(--alt-space-unit) * 4);
+}
+
+nav a:first-child {
+    font-weight: bold;
+}
+
+/* Copyright */
+.copyright {
+    background-color: var(--nav-color);
+    display: flex;
+    justify-content: space-between;
+    padding: calc(var(--alt-space-unit) * 2) calc(var(--alt-space-unit) * 4);
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.copyright div,
+.copyright span {
+    margin-bottom: 0;
+}
+
+.copyright img {
+    height: 40px;
+    width: auto;
+    padding-left: calc(var(--alt-space-unit) * 4);
+}
+
+/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------- MEDIA QUERIES ------------------------------------- */
+
+@media (max-width: 1200px) {
+
+    /* PHOTO GALLERY  &&  FLASHCARDS MAIN PAGE */
+    .photography,
+    .flashcards-categories {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+
+    /* PHOTO GALLERY  &&  FLASHCARDS MAIN PAGE */
+    .photography,
+    .flashcards-categories {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* MAIN SECTIONS */
+    .profile-picture {
+        max-width: 400px;
+    }
+
+    .intro-wrapper h2 {
+        text-align: center;
+    }
+
+    /* ART SECTIONS */
+    .art-categories,
+    .app-wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* COPYRIGHT BAR */
+    .copyright img {
+        height: 30px;
+        padding-left: 1rem;
+    }
+
+    /* PHOTO GALLERY  &&  FLASHCARDS MAIN PAGE */
+    .photography,
+    .flashcards-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .photography img {
+        height: auto;
+    }
+
+    .artwork div {
+        width: initial !important;
+        max-width: none !important;
+
+    }
+
+    /* IMAGE VIEWER */
+    .ui {
+        flex-direction: row-reverse;
+    }
+}

@@ -174,39 +174,37 @@ container.addEventListener('touchmove', (e) => {
     previousTouch = touch;
 }, false);
 
-// let firstPreviousTouch;
-// let secondPreviousTouch;
-// container.addEventListener('touchmove', (e) => {
-
-//     if (e.targetTouches.length == 2) {
-//         console.log("hehe");
-//         const firstFinger = e.touches[0];
-//         const secondFinger = e.touches[1];
-
-//         let dist = Math.hypot(
-//             firstFinger.pageX - secondFinger.pageX,
-//             firstFinger.pageY - secondFinger.pageY);
-//         let previousDist = Math.hypot(
-//             firstPreviousTouch.pageX - secondPreviousTouch.pageX,
-//             firstPreviousTouch.pageY - secondPreviousTouch.pageY);
-//         let finalDist = dist - previousDist;
-
-//         e.preventDefault();
-
-//         instance.zoom({
-//             deltaScale: Math.sign(finalDist) > 0 ? -1 : 1,
-//             x: window.innerWidth / 2,
-//             y: window.innerHeight / 2
-//         });
-//         firstPreviousTouch = firstFinger;
-//         secondPreviousTouch = secondFinger;
-//     };
-
-
-// }, false);
-
-
 container.addEventListener("touchend", (e) => {
     previousTouch = null;
 });
 
+
+// RISKY CODE
+let firstPreviousTouch;
+let secondPreviousTouch;
+container.addEventListener('touchmove', (e) => {
+
+    if (e.targetTouches.length == 2) {
+        console.log("hehe");
+        const firstFinger = e.touches[0];
+        const secondFinger = e.touches[1];
+
+        let dist = Math.hypot(
+            firstFinger.pageX - secondFinger.pageX,
+            firstFinger.pageY - secondFinger.pageY);
+        let previousDist = Math.hypot(
+            firstPreviousTouch.pageX - secondPreviousTouch.pageX,
+            firstPreviousTouch.pageY - secondPreviousTouch.pageY);
+        let finalDist = dist - previousDist;
+
+        e.preventDefault();
+
+        instance.zoom({
+            deltaScale: Math.sign(finalDist) > 0 ? -1 : 1,
+            x: window.innerWidth / 2,
+            y: window.innerHeight / 2
+        });
+        firstPreviousTouch = firstFinger;
+        secondPreviousTouch = secondFinger;
+    };
+}, false);
