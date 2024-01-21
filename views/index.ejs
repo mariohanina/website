@@ -5,9 +5,9 @@
 
 <body>
 
-    <!-- I NEED TO MAKE THE NAVBAR COLLAPSABLE -->
     <%- include("templates/navbar") -%>
 
+    <!-- Profile Section -->
     <section id="intro">
         <h1 class="text-center">Hello visitor, I'm Mario.</h1>
         <div class="intro-wrapper">
@@ -20,9 +20,11 @@
         </div>
     </section>
 
+    <!-- Art Section -->
     <section id="art">
         <h2 class="text-center">Art</h2>
         <div class="art-categories">
+            <!-- Dry Media -->
             <div>
                 <a href="/art-gallery#dry-media">
                     <div>
@@ -33,7 +35,7 @@
                 <p>I draw because I want to materialize my thoughts, my interpretations, and my observations of the
                     world.</p>
             </div>
-            <!-- I NEED TO UPDATE THIS PART WITH PAINTINGS -->
+            <!-- Wet Media -->
             <div>
                 <a href="/art-gallery#wet-media">
                     <div>
@@ -44,6 +46,7 @@
                 <p>Just like most humans I enjoy capturing fleeting moments, especially since I like travelling a lot.
                 </p>
             </div>
+            <!-- Photography -->
             <div>
                 <a href="/photo-gallery">
                     <div>
@@ -57,10 +60,11 @@
         </div>
     </section>
 
-    <!-- I NEED TO ADD LINKS TO THIS SECTION AND ALSO UPDATE THE GRAPHICS -->
+    <!-- Apps -->
     <section id="software">
         <h2 class="text-center">Software</h2>
         <div class="app-wrapper">
+            <!-- Flashcards -->
             <div>
                 <a href="/apps/flashcards">
                     <div>
@@ -70,6 +74,7 @@
                 </a>
                 <p>Create your own vocabulary flashcards, or practice collection of existing ones.</p>
             </div>
+            <!-- Stocks App -->
             <div>
                 <div>
                     <img src="images/software/stocks.png" alt="Stocks app">
@@ -77,6 +82,7 @@
                 <h3>Stocks app</h3>
                 <p>Search for a company to take a look at their adjusted weekly stock prices.</p>
             </div>
+            <!-- Next Project -->
             <div>
                 <div>
                     <img src="images/software/tbd.png" alt="">
@@ -87,6 +93,7 @@
         </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact">
         <h2 class="text-center">Contact me</h2>
         <form class="contact-form" action="/" method="post" target="_blank">

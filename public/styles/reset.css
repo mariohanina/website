@@ -2,17 +2,9 @@
     --nav-color: rgb(10, 10, 10);
     --main-bg-color: rgb(40, 40, 40);
     --secondary-bg-color: rgb(30, 30, 30);
-    /**/
-    --tertiary-bg-color: rgb(20, 20, 20);
-    /**/
     --text-color: rgb(235, 235, 235);
     --border-color: rgb(235, 235, 235);
-    /**/
     --main-theme-color: rgb(20, 20, 20);
-    /**/
-    /**/
-    --secondary-theme-color: rgb(110, 50, 50);
-    /**/
     --form-color: rgb(40, 40, 40);
     --form-effects-color: rgb(10, 10, 10);
 
@@ -41,12 +33,14 @@ nav,
 section,
 input,
 textarea,
-button {
+button,
+ul,
+li {
     margin: 0;
     padding: 0;
     border: 0;
     vertical-align: baseline;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', 'Montserrat', sans-serif;
     color: var(--text-color);
     box-sizing: border-box;
 }
@@ -61,13 +55,15 @@ body {
 h1 {
     font-size: calc(var(--font-size-unit) * 5);
     margin-bottom: calc(var(--space-unit) * 5);
-    font-weight: bold;
+    font-weight: normal;
+    font-family: 'Lora', 'Merriweather', 'Roboto Slab', serif;
 }
 
 h2 {
     font-size: calc(var(--font-size-unit) * 4);
     margin-bottom: calc(var(--space-unit) * 4);
-    font-weight: bold;
+    font-weight: normal;
+    font-family: 'Lora', 'Merriweather', 'Roboto Slab', serif;
 }
 
 h3,
@@ -77,6 +73,7 @@ h6 {
     font-size: calc(var(--font-size-unit) * 3);
     margin-bottom: calc(var(--space-unit) * 1);
     font-weight: normal;
+    font-family: 'Lora', 'Merriweather', 'Roboto Slab', serif;
 }
 
 div,
@@ -86,16 +83,24 @@ span,
 textarea {
     font-size: calc(var(--font-size-unit) * 2);
     margin-bottom: calc(var(--space-unit) * 2);
+    font-family: 'Open Sans', 'Montserrat', sans-serif;
 }
 
-label {
+label,
+ul {
     font-size: calc(var(--font-size-unit) * 2);
     margin-bottom: calc(var(--space-unit) * 1);
+    font-family: 'Open Sans', 'Montserrat', sans-serif;
 }
 
 a,
 button {
     font-size: calc(var(--font-size-unit) * 2);
+    font-family: 'Open Sans', 'Montserrat', sans-serif;
+}
+
+ul {
+    padding-left: calc(var(--font-size-unit) * 2);
 }
 
 section {
@@ -161,4 +166,21 @@ button:hover {
 
 .no-decoration {
     text-decoration: none;
+}
+
+.large-text {
+    font-size: calc(var(--font-size-unit) * 3);
+}
+
+.larger-text {
+    font-size: calc(var(--font-size-unit) * 4);
+    font-family: 'Merriweather', 'Lora', 'Roboto Slab', serif;
+}
+
+.m-b-1 {
+    margin-bottom: calc(var(--space-unit) * 1) !important;
+}
+
+.m-b-2 {
+    margin-bottom: calc(var(--space-unit) * 2) !important;
 }

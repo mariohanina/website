@@ -100,10 +100,6 @@
     text-align: center;
 }
 
-.contact-result .larger-text {
-    margin-bottom: calc(var(--space-unit) * 1);
-}
-
 /* ----------------------------------------------------------------------------------------- */
 /* ------------------------------------- PHOTO GALLERY ------------------------------------- */
 .photography {
@@ -164,6 +160,31 @@
     -webkit-user-select: none;
     user-select: none;
 }
+
+/* Directions Modal */
+#directions-modal {
+    margin-bottom: 0;
+}
+
+#directions-modal * {
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+#directions-modal button {
+    display: block;
+    margin: auto;
+}
+
+.stop-showing-wrapper input {
+    display: inline;
+    margin-bottom: 0;
+}
+
+.stop-showing-wrapper label {
+    display: inline;
+}
+
 
 #image-container {
     height: 100%;
@@ -239,11 +260,6 @@
     text-align: center;
 }
 
-.flashcards-categories .large-text {
-    font-size: calc(var(--font-size-unit) * 3);
-    margin-bottom: calc(var(--space-unit) * 1);
-}
-
 /* ----------------------------------------------------------------------------------------- */
 /* ------------------------------------- FLASHCARDS QUIZ ------------------------------------- */
 /* APP BAR THAT CONTAINS THE SCORE AND THE BACK LINK */
@@ -295,11 +311,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.larger-text {
-    font-size: calc(var(--font-size-unit) * 4);
-    font-weight: bold;
 }
 
 /* CARD FRONT */
@@ -378,10 +389,6 @@
     -webkit-animation-duration: 0.3s;
     animation-name: fadeIn;
     animation-duration: 0.3s
-}
-
-.modal-content .larger-text {
-    margin-bottom: calc(var(--space-unit) * 1);
 }
 
 @-webkit-keyframes fadeIn {

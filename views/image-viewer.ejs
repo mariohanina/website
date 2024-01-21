@@ -5,23 +5,63 @@
 
 <body class="image-viewer-body">
 
-
-
+    <!-- The image -->
     <div id="image-container">
-
         <div class="display-area">
-
             <img class="display-image" src=<%= imageSource %>>
         </div>
-
     </div>
 
+    <!-- The buttons -->
     <div style="display: flex; justify-content: end;">
         <div class="ui">
             <a href=<%= closeButtonLink %>><button id="close" title="Close">&#x2715</button></a>
             <button id="zoom-in" title="Zoom in">+</button>
             <button id="zoom-out" title="Zoom out">&#8722;</button>
             <button id="zoom-original" title="Fit to screen">&#128269;</button>
+        </div>
+    </div>
+
+    <!-- The modal -->
+    <div id="modal" class="fading-modal">
+        <div class="modal-content">
+            <div id="directions-modal">
+                <p class="larger-text m-b-2">Directions:</p>
+                <ul>
+
+                    <li>
+                        To zoom in/out:
+                        <ul>
+                            <li>Use the scroll wheel on the mouse.</li>
+                            <li>Pinch in/out using the touchscreen or the touchpad.</li>
+                            <li>Use the +/- buttons on the top right corner.</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        To pan:
+                        <ul>
+                            <li>Click and drag.</li>
+                            <li>Touch and drag.</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        To restore the default position:
+                        <ul>
+                            <li>Double click.</li>
+                            <li>Double tap.</li>
+                            <li>Use the magnifier button.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="stop-showing-wrapper">
+                    <input id="stop-showing" type="checkbox">
+                    <label for="stop-showing">Don't show again.</label>
+                </div>
+                <button id="stop-showing-btn">Close</button>
+            </div>
         </div>
     </div>
 

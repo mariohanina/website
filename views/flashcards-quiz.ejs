@@ -13,20 +13,22 @@
             <span id="score">Score</span>
         </div>
 
+        <!-- The card -->
         <div class="card">
             <div class="card-inner">
                 <div class="card-front">
-                    <span class="text-center larger-text" id="question">Question</span>
+                    <span class="text-center larger-text m-b-2" id="question">Question</span>
                     <input type="text" name="user-input" id="user-input" placeholder="Type here">
                 </div>
                 <div class="card-back">
-                    <span class="text-center larger-text" id="answer"></span>
+                    <span class="text-center larger-text m-b-2" id="answer"></span>
                     <span class="text-center" id="message"></span>
                     <button id="continue">Continue</button>
                 </div>
             </div>
         </div>
 
+        <!-- The buttons -->
         <div class="fc-buttons-wrapper">
             <button id="reset">reset progress</button>
             <button id="reveal">reveal answer</button>
@@ -35,11 +37,10 @@
 
     </section>
 
-
-
+    <!-- The modal -->
     <div id="modal" class="fading-modal">
         <div class="modal-content">
-            <span class="larger-text">Great job!</span>
+            <span class="larger-text m-b-2">Great job!</span>
             <span>You've guessed all the words, go back and try another category.</span>
             <button id="close">Close</button>
         </div>

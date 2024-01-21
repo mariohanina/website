@@ -1,3 +1,18 @@
+const closeBtn = document.querySelector("#stop-showing-btn");
+const checkBox = document.querySelector("#stop-showing");
+
+closeBtn.addEventListener("click", () => {
+    if (checkBox.checked) {
+        localStorage.setItem("first-time", "true")
+    }
+    modal.style.display = "none";
+});
+
+if (!localStorage.getItem("first-time")) {
+    modal.style.display = "flex";
+}
+
+
 const hasPositionChanged = ({ pos, prevPos }) => pos !== prevPos;
 
 const valueInRange = ({ minScale, maxScale, scale }) => scale <= maxScale && scale >= minScale;

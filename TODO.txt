@@ -1,8 +1,8 @@
 TODO(s):
 IMAGE VIEWER
-Prevent the Image Viewer from panning beyond the edge of the image.
-Add buttons for the Image Viewer to Navigate throught the images even when inside the viewer.
-Add Pinch in/out. IMPORTANT!
+Prevent the Image Viewer from panning beyond the edge of the image.    POSTPONABLE
+Add buttons for the Image Viewer to Navigate throught the images even when inside the viewer.    POSTPONABLE
+Add Pinch in/out.    AT THE END
 
 APPS
 Create the Stocks App.
@@ -12,9 +12,8 @@ update the dictionary.
 Make Card text smaller on smaller screens
 
 GENERAL
-Fix the Navbar.
-Clean up the code.
-Fix and Typography.
+Make the Navbar collapsable.    POSTPONABLE
+Fix the text content.    AT THE END
 
 NOTES:
 When using Route Parameters with Node.js, we have to start links and URLs with a leading "/".
