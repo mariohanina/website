@@ -4,6 +4,7 @@ const input = document.querySelector("#searched-company");
 const searchBtn = document.querySelector("#search");
 const searchOutcome = document.querySelector("#search-outcome");
 const modal = document.querySelector("#modal");
+const close = document.querySelector("#close");
 
 let listOfCompanies = [];
 
@@ -46,40 +47,32 @@ function radioFinder(radios) {
 
 // Finds which companies match the user's search phrases
 function matchingCompanies() {
-    // Prevent the refreshing of the page
-    // event.preventDefault()
 
     let cleanedInput = input.value.trim()
-    // searchModal.css("display", "block");
+    modal.style.display = "flex";
 
-    // If the user inputs an empty string then we display an invalid input, otherwise we start the search
     if (cleanedInput.length > 0) {
         // Creates a loading screen
         // matchingCompanies.html(loading);
 
         if (listOfCompanies.length < 1) {
-            // Get hold of the matching results
             getRequest("options").then(function (result) {
-
                 listOfCompanies = result.options;
-                searchOutcome.innerHTML = listOfCompanies;
-                console.log(listOfCompanies);
-                // displayAvailableCompanies();
+                // searchOutcome.innerHTML = listOfCompanies;
+                // console.log(listOfCompanies);
             });
-        } else {
-            // displayAvailableCompanies();
-            console.log(listOfCompanies);
         }
+        // displayAvailableCompanies();
     } else {
-        console.log("No input");
-        searchOutcome.innerHTML = "No input was provided!";
-        // matchingCompanies.html('<span>Please type in the name of the company or #ticker-symbol on the serach bar before you hit the search button.</span>');
+        searchOutcome.innerHTML = `<span class="larger-text">No input was provided!</span>`;
     }
+
 }
 
 
 
 searchBtn.addEventListener("click", matchingCompanies)
+close.addEventListener("click", () => { modal.style.display = "none"; })
 
 
 

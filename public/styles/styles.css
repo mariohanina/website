@@ -479,3 +479,7 @@
     flex-grow: 1;
     padding: calc(var(--alt-space-unit) * 1) calc(var(--alt-space-unit) * 2);
 }
+
+.stocks-modal {
+    overflow: auto;
+}
