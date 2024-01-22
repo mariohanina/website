@@ -104,7 +104,7 @@ ul {
 }
 
 section {
-    padding: calc(var(--space-unit) * 5);
+    padding: calc(var(--space-unit) * 5) calc(var(--space-unit) * 3);
     background-color: var(--main-bg-color);
 }
 
@@ -114,7 +114,7 @@ section:nth-of-type(2n) {
 
 @media (max-width: 768px) {
     section {
-        padding: calc(var(--space-unit) * 5) calc(var(--space-unit) * 3);
+        padding: calc(var(--space-unit) * 5) calc(var(--space-unit) * 1);
     }
 }
 
@@ -135,6 +135,11 @@ textarea {
     transition: 0.2s;
     background-color: var(--form-color);
     border: 1px solid var(--border-color);
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    outline: none;
 }
 
 input:focus,

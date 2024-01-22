@@ -14,6 +14,9 @@ Make Card text smaller on smaller screens
 GENERAL
 Make the Navbar collapsable.    POSTPONABLE
 Fix the text content.    AT THE END
+Make the art and apps sections a max width system.
+Clean up the image viewer.
+Fix google symbols
 
 NOTES:
 When using Route Parameters with Node.js, we have to start links and URLs with a leading "/".

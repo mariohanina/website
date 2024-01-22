@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("templates/head", {title: "Stocks App"}); %>
+
+<body>
+
+    <%- include("templates/navbar") -%>
+
+    <section style="flex-grow: 1;">
+
+        <div class="stocks-main-wrapper">
+
+            <!-- Modal that displays available companies -->
+            <div id="modal" class="fading-modal">
+                <div class="modal-content">
+                    <button class="closeBtn" id=""><span
+                            class="material-symbols-outlined google-symbol">close</span></button>
+                    <div>
+                        <div id="search-outcome"><label for=""></label></div>
+                        <button id="">Get Data</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal that allows us to update time -->
+            <!-- <div class="my-fading-modal" id="updateTimeModal">
+                <div class="my-modal-content">
+                    <span class="close" id="updateTimeClose">&times;</span>
+                    <p>Select a start and end dates for the data, both dates are required.</p>
+                    <div>
+                        <label for="start">Start Date: </label>
+                        <input class="form-control" type="date" id="start" name="trip-start" min="1999-01-15">
+                    </div>
+                    <div>
+                        <label for="end">End Date: </label>
+                        <input class="form-control" type="date" id="end" name="trip-end" min="1999-01-15">
+                    </div>
+                    <button class="btn my-button my-1" id="updateTime">Update Time</button>
+                </div>
+            </div> -->
+
+            <!-- company name and controls -->
+            <div class="stocks-app-info">
+                <span class="larger-text" id="company-id">Company Name</span>
+                <div class="stocks-app-controls">
+                    <div>
+                        <input id="searched-company" type="text" placeholder="e.g., MicroSoft, #AAPL"><button
+                            id="search"><span class="material-symbols-outlined google-symbol">search</span></button>
+                    </div>
+                    <button id="time-span"><span class="material-symbols-outlined google-symbol">
+                            edit_calendar</span></button>
+                </div>
+            </div>
+
+            <!-- The chart -->
+            <div style="width: 100%; aspect-ratio: 2/1; background-color: red;">
+                Hehe
+            </div>
+            <!-- <div class="chart-container px-0">
+                <div class="chart-wrapper">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div> -->
+
+        </div>
+
+    </section>
+
+    <%- include("templates/copyright", {
+        liSrc: "../images/logos/linkedin.png", 
+        ghSrc: "../images/logos/github.png"
+    }); %>
+
+    <script src="/scripts/stocks.js"></script>
+
+</body>
+
+</html>

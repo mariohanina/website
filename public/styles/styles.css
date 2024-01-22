@@ -176,15 +176,11 @@
     margin: auto;
 }
 
-.stop-showing-wrapper input {
+.stop-showing-wrapper input,
+.stop-showing-wrapper label {
     display: inline;
     margin-bottom: 0;
 }
-
-.stop-showing-wrapper label {
-    display: inline;
-}
-
 
 #image-container {
     height: 100%;
@@ -225,7 +221,6 @@
 .ui button {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
     padding: 3px;
     opacity: 0.5;
 }
@@ -381,14 +376,24 @@
     justify-content: center;
     background-color: var(--main-bg-color);
     padding: calc(var(--space-unit) * 3);
-    margin: calc(var(--space-unit) * 3);
+    margin: calc(var(--space-unit) * 3) calc(var(--space-unit) * 1);
     width: 100%;
     max-width: 500px;
+    position: relative;
     /* Modal animation */
     -webkit-animation-name: fadeIn;
     -webkit-animation-duration: 0.3s;
     animation-name: fadeIn;
     animation-duration: 0.3s
+}
+
+.closeBtn {
+    /* border-radius: 50%; */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 3px;
+    border: none;
 }
 
 @-webkit-keyframes fadeIn {
@@ -409,4 +414,68 @@
     to {
         opacity: 1
     }
+}
+
+
+
+
+
+
+
+
+
+
+.stocks-main-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.stocks-app-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: calc(var(--space-unit) * 2);
+}
+
+.stocks-app-info>span {
+    margin-right: calc(var(--space-unit) * 4);
+}
+
+.stocks-app-info * {
+    margin-bottom: 0;
+}
+
+.stocks-app-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-grow: 1;
+}
+
+.stocks-app-controls>div {
+    flex-grow: 19;
+}
+
+#searched-company {
+    vertical-align: top;
+    padding: 0.5rem 1rem;
+    border-right: none;
+    display: inline;
+    height: 100%;
+    width: calc(100% - 50px);
+}
+
+#search {
+    border-left: none;
+    display: inline;
+    padding: 0.5rem 1rem;
+    width: 50px;
+    height: 100%;
+}
+
+.stocks-app-controls>button {
+    flex-grow: 1;
+    padding: calc(var(--alt-space-unit) * 1) calc(var(--alt-space-unit) * 2);
 }
