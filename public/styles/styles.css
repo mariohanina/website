@@ -10,7 +10,9 @@
 }
 
 .profile-picture {
-    max-width: 200px;
+    width: auto;
+    max-width: 214px;
+    max-height: 80vh;
 }
 
 .intro-wrapper span {
@@ -21,7 +23,7 @@
 
 .intro-wrapper p {
     text-align: justify;
-    max-width: 450px;
+    max-width: 550px;
 }
 
 .intro-wrapper div,
@@ -36,8 +38,15 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: calc(var(--space-unit) * 3);
-    width: 80%;
+    width: 100%;
+    max-width: 1200px;
     margin: auto;
+}
+
+.art-apps-cards {
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
 }
 
 .art-categories div,
@@ -72,7 +81,7 @@
 
 /* Contact Section */
 .contact-form {
-    max-width: 750px;
+    max-width: 800px;
     margin: auto;
 }
 
@@ -259,6 +268,9 @@
 /* ------------------------------------- FLASHCARDS QUIZ ------------------------------------- */
 /* APP BAR THAT CONTAINS THE SCORE AND THE BACK LINK */
 .app-bar {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -376,9 +388,11 @@
     justify-content: center;
     background-color: var(--main-bg-color);
     padding: calc(var(--space-unit) * 3);
-    margin: calc(var(--space-unit) * 3) calc(var(--space-unit) * 1);
+    margin: 0 calc(var(--space-unit) * 1);
     width: 100%;
     max-width: 500px;
+    max-height: calc(100vh - ((var(--space-unit) * 3) * 2));
+    overflow: auto;
     position: relative;
     /* Modal animation */
     -webkit-animation-name: fadeIn;
@@ -388,7 +402,6 @@
 }
 
 .closeBtn {
-    /* border-radius: 50%; */
     position: absolute;
     top: 5px;
     right: 5px;
@@ -482,4 +495,5 @@
 
 .stocks-modal {
     overflow: auto;
+    /* max-height: 60vh; */
 }

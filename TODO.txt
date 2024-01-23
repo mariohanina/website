@@ -2,6 +2,7 @@ TODO(s):
 IMAGE VIEWER
 Prevent the Image Viewer from panning beyond the edge of the image.    POSTPONABLE
 Add buttons for the Image Viewer to Navigate throught the images even when inside the viewer.    POSTPONABLE
+When a user hits the back button in the gallery, send them to main page, not to previous image.    POSTPONABLE
 Add Pinch in/out.    AT THE END
 
 APPS
@@ -13,10 +14,9 @@ Make Card text smaller on smaller screens
 
 GENERAL
 Make the Navbar collapsable.    POSTPONABLE
+Decide on the profile picture.    POSTPONABLE
 Fix the text content.    AT THE END
-Make the art and apps sections a max width system.
-Clean up the image viewer.
-Fix google symbols
+REVISIT STOCKS.JS, ALL CSS FILES, ALL TEMPELATES, ALL VIEWS AND APP.JS AND LAYOUT.JS
 
 NOTES:
 When using Route Parameters with Node.js, we have to start links and URLs with a leading "/".

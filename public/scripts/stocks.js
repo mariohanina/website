@@ -5,6 +5,7 @@ const searchBtn = document.querySelector("#search");
 const searchOutcome = document.querySelector("#search-outcome");
 const modal = document.querySelector("#modal");
 const close = document.querySelector("#close");
+const getCoDataBtn = document.querySelector("#get-co-data");
 
 let listOfCompanies = [];
 
@@ -54,17 +55,19 @@ function matchingCompanies() {
     if (cleanedInput.length > 0) {
         // Creates a loading screen
         // matchingCompanies.html(loading);
+        getCoDataBtn.style.display = "block";
 
         if (listOfCompanies.length < 1) {
             getRequest("options").then(function (result) {
                 listOfCompanies = result.options;
-                // searchOutcome.innerHTML = listOfCompanies;
-                // console.log(listOfCompanies);
+                // displayAvailableCompanies();
             });
+        } else {
+            // displayAvailableCompanies();
         }
-        // displayAvailableCompanies();
     } else {
-        searchOutcome.innerHTML = `<span class="larger-text">No input was provided!</span>`;
+        searchOutcome.innerHTML = `<span class="large-text">No input was provided!</span>`;
+        getCoDataBtn.style.display = "none";
     }
 
 }

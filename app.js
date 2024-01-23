@@ -35,18 +35,17 @@ app.get("/apps/stocks", (req, res) => { res.render("stocks"); })
 
 
 
-
-
+// T9HTJL0BTNMVDTYM
+// HRO4EJEK4QDRJOEX
 
 
 app.get("/options", (req, res) => {
     let listOfCompanies = [];
-    // I need to clean the url a little bit
     request.get(`https://www.alphavantage.co/query?function=LISTING_STATUS&apikey=T9HTJL0BTNMVDTYM`)
         .pipe(new StringStream())
         .CSVParse()
         .consume(object => listOfCompanies.push(object))
-        .then(() => res.status(200).json({ options: listOfCompanies }));
+        .then(() => res.status(200).json({ options: listOfCompanies }))
 })
 
 

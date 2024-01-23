@@ -1,5 +1,7 @@
+// Code to display a modal describing the controls for the image viewer
 const closeBtn = document.querySelector("#stop-showing-btn");
 const checkBox = document.querySelector("#stop-showing");
+const modal = document.querySelector("#modal");
 
 closeBtn.addEventListener("click", () => {
     if (checkBox.checked) {
@@ -13,6 +15,7 @@ if (!localStorage.getItem("first-time")) {
 }
 
 
+// Original Code by Kwdowik: https://github.com/kwdowik/zoom-pan
 const hasPositionChanged = ({ pos, prevPos }) => pos !== prevPos;
 
 const valueInRange = ({ minScale, maxScale, scale }) => scale <= maxScale && scale >= minScale;
@@ -90,11 +93,12 @@ const renderer = ({ minScale, maxScale, element, scaleSensitivity = 10 }) => {
 };
 
 
-
+// Start up the app
 const container = document.getElementById("image-container");
 const instance = renderer({ minScale: 1, maxScale: 5, element: container.children[0], scaleSensitivity: 30 });
 
-// Zooming in and out
+
+// Zooming in by buttons
 document.querySelector("#zoom-in").addEventListener("click", () => {
     instance.zoom({
         deltaScale: 5,
@@ -102,6 +106,7 @@ document.querySelector("#zoom-in").addEventListener("click", () => {
         y: window.innerHeight / 2
     });
 });
+// Zooming out by buttons
 document.querySelector("#zoom-out").addEventListener("click", () => {
     instance.zoom({
         deltaScale: -5,
@@ -109,6 +114,7 @@ document.querySelector("#zoom-out").addEventListener("click", () => {
         y: window.innerHeight / 2
     });
 });
+// Zooming in/out by scroll wheel
 container.addEventListener("wheel", (event) => {
     event.preventDefault();
     instance.zoom({
@@ -118,7 +124,8 @@ container.addEventListener("wheel", (event) => {
     });
 });
 
-// Default state
+
+// Restore default state function
 function restoreDefaultState(event) {
     if (instance.zoomInfo() !== 1 ||
         instance.locationInfo().translateX !== 0 ||
@@ -136,6 +143,7 @@ function restoreDefaultState(event) {
         });
     }
 }
+// Restore default state by button
 document.querySelector("#zoom-original").addEventListener("click", () => {
     instance.panTo({
         originX: 0,
@@ -143,7 +151,9 @@ document.querySelector("#zoom-original").addEventListener("click", () => {
         scale: 1,
     });
 });
+// Restore default state by double clicking
 container.addEventListener("dblclick", (event) => { restoreDefaultState(event) });
+// Restore default state by double tapping
 let mylatesttap;
 function doubletap(event) {
     let now = new Date().getTime();
@@ -157,7 +167,8 @@ container.addEventListener("touchstart", (e) => {
     doubletap(touch);
 });
 
-// Panning
+
+// Panning by mouse
 container.addEventListener("mousemove", (event) => {
     if (!(event.buttons & 1 || (event.buttons === undefined && event.which == 1))) {
         return;
@@ -169,7 +180,7 @@ container.addEventListener("mousemove", (event) => {
         originY: event.movementY
     });
 })
-
+// Panning by touching
 let previousTouch;
 container.addEventListener('touchmove', (e) => {
     const touch = e.touches[0];
@@ -188,7 +199,6 @@ container.addEventListener('touchmove', (e) => {
 
     previousTouch = touch;
 }, false);
-
 container.addEventListener("touchend", (e) => {
     previousTouch = null;
 });
