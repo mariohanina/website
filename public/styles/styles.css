@@ -429,15 +429,8 @@
     }
 }
 
-
-
-
-
-
-
-
-
-
+/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------- FLASHCARDS QUIZ ------------------------------------- */
 .stocks-main-wrapper {
     width: 100%;
     max-width: 800px;
@@ -448,7 +441,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 0.75rem;
+    gap: calc(var(--space-unit) * 1);
     margin-bottom: calc(var(--space-unit) * 2);
 }
 
@@ -463,7 +456,7 @@
 .stocks-app-controls {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: calc(var(--space-unit) * 1);
     flex-grow: 1;
 }
 
@@ -471,7 +464,7 @@
     flex-grow: 19;
 }
 
-#searched-company {
+#search-input {
     vertical-align: top;
     padding: 0.5rem 1rem;
     border-right: none;
@@ -480,7 +473,7 @@
     width: calc(100% - 50px);
 }
 
-#search {
+#search-button {
     border-left: none;
     display: inline;
     padding: 0.5rem 1rem;
@@ -495,5 +488,19 @@
 
 .stocks-modal {
     overflow: auto;
-    /* max-height: 60vh; */
+    margin-bottom: 0;
+}
+
+#get-data {
+    display: none;
+    margin: auto;
+}
+
+.available-choices-label {
+    margin-bottom: calc(var(--alt-space-unit) * 1);
+}
+
+.available-choices {
+    display: inline;
+    margin-bottom: 0;
 }

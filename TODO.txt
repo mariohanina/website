@@ -12,6 +12,11 @@ Add Enter Key Functionality.
 update the dictionary.
 Make Card text smaller on smaller screens
 
+STOCKS
+Add a loading screen
+Catch errors when receiving company data
+Complete the app
+
 GENERAL
 Make the Navbar collapsable.    POSTPONABLE
 Decide on the profile picture.    POSTPONABLE
