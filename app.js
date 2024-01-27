@@ -9,8 +9,11 @@ const request = require("request");
 const app = express();
 const port = 3000;
 
+let parcel;
+
 app.use(express.static("public"));
 app.set("view engine", "ejs");
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // GET REQUESTS
@@ -37,15 +40,41 @@ app.get("/apps/stocks", (req, res) => { res.render("stocks"); })
 
 // T9HTJL0BTNMVDTYM
 // HRO4EJEK4QDRJOEX
+// 9FD4FH168YWS1BVJ
 
 
 app.get("/options", (req, res) => {
     let listOfCompanies = [];
-    request.get(`https://www.alphavantage.co/query?function=LISTING_STATUS&apikey=T9HTJL0BTNMVDTYM`)
+    request.get(`https://www.alphavantage.co/query?function=LISTING_STATUS&apikey=9FD4FH168YWS1BVJ`)
         .pipe(new StringStream())
         .CSVParse()
         .consume(object => listOfCompanies.push(object))
         .then(() => res.status(200).json({ options: listOfCompanies }))
+})
+
+app.post("/choices", (req, res) => {
+    parcel = req.body;
+    // Why do I need this code?
+    if (!parcel) return res.status(400).send({ status: "failed" })
+    res.status(200).send({ status: "recieved" })
+})
+
+app.get("/information", (req, res) => {
+    request.get({
+        // Clean up the url
+        url: `https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol=${parcel.parcel}&apikey=9FD4FH168YWS1BVJ`,
+        json: true,
+        headers: { 'User-Agent': 'request' }
+
+    }, (err, response, data) => {
+        if (err) {
+            console.log('Error:', err);
+        } else if (response.statusCode !== 200) {
+            console.log('Status:', response.statusCode);
+        } else {
+            res.status(200).json({ information: data });
+        }
+    });
 })
 
 

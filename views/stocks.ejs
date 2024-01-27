@@ -24,21 +24,21 @@
             </div>
 
             <!-- Modal that allows us to update time -->
-            <!-- <div class="my-fading-modal" id="updateTimeModal">
-                <div class="my-modal-content">
-                    <span class="close" id="updateTimeClose">&times;</span>
-                    <p>Select a start and end dates for the data, both dates are required.</p>
+            <div id="time-modal" class="fading-modal">
+                <div class="modal-content">
+                    <button class="closeBtn" id="time-close"><span
+                            class="material-symbols-outlined google-symbol">close</span></button>
                     <div>
                         <label for="start">Start Date: </label>
-                        <input class="form-control" type="date" id="start" name="trip-start" min="1999-01-15">
+                        <input type="date" id="start" name="trip-start" min="1999-01-15">
                     </div>
                     <div>
                         <label for="end">End Date: </label>
-                        <input class="form-control" type="date" id="end" name="trip-end" min="1999-01-15">
+                        <input type="date" id="end" name="trip-end" min="1999-01-15">
                     </div>
-                    <button class="btn my-button my-1" id="updateTime">Update Time</button>
+                    <button id="update-time">Update Time</button>
                 </div>
-            </div> -->
+            </div>
 
             <!-- company name and controls -->
             <div class="stocks-app-info">
@@ -55,14 +55,13 @@
             </div>
 
             <!-- The chart -->
-            <div style="width: 100%; aspect-ratio: 2/1; background-color: red;">
-                Hehe
-            </div>
-            <!-- <div class="chart-container px-0">
-                <div class="chart-wrapper">
-                    <canvas id="myChart"></canvas>
+            <div style="width: 100%; aspect-ratio: 2/1;">
+                <div class="chart-container" style="height: 100%;">
+                    <div class="chart-wrapper" style="height: 100%;">
+                        <canvas id="myChart"></canvas>
+                    </div>
                 </div>
-            </div> -->
+            </div>
 
         </div>
 
@@ -73,6 +72,7 @@
         ghSrc: "../images/logos/github.png"
     }); %>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/scripts/stocks.js"></script>
 
 </body>
