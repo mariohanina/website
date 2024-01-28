@@ -114,6 +114,11 @@ nav a:first-child {
     .ui {
         flex-direction: row-reverse;
     }
+
+    /* STOCKS APP */
+    .chart-container {
+        aspect-ratio: 4/3;
+    }
 }
 
 
@@ -144,4 +149,48 @@ span.google-symbol {
         'wght' 200,
         'GRAD' 0,
         'opsz' 24
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.loader {
+    margin: 0 auto;
+    border: 10px solid transparent;
+    border-radius: 50%;
+    border-top: 10px solid var(--text-color);
+    border-right: 10px solid var(--text-color);
+    width: 60px;
+    height: 60px;
+    -webkit-animation: spin 1s linear infinite;
+    /* Safari */
+    animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

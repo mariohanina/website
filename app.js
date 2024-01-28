@@ -50,6 +50,11 @@ app.get("/options", (req, res) => {
         .CSVParse()
         .consume(object => listOfCompanies.push(object))
         .then(() => res.status(200).json({ options: listOfCompanies }))
+        .catch((err) => {
+            console.log("Backend err");
+            // res.status(200).json({ options: listOfCompanies })
+            res.send("Error")
+        })
 })
 
 app.post("/choices", (req, res) => {

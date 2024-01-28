@@ -6,16 +6,16 @@ When a user hits the back button in the gallery, send them to main page, not to 
 Add Pinch in/out.    AT THE END
 
 APPS
-Create the Stocks App.
 Fix the "the" problem in the game.
 Add Enter Key Functionality.
 update the dictionary.
 Make Card text smaller on smaller screens
 
 STOCKS
-Add a loading screen
-Catch errors when receiving company data
-Complete the app
+Handle and log the error better
+Improve displayAvailableCompanies() Function
+Catch errors in the getData function
+Fix the time label issue
 
 GENERAL
 Make the Navbar collapsable.    POSTPONABLE

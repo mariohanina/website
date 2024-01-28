@@ -25,7 +25,7 @@
 
             <!-- Modal that allows us to update time -->
             <div id="time-modal" class="fading-modal">
-                <div class="modal-content">
+                <div class="modal-content update-time-modal-content">
                     <button class="closeBtn" id="time-close"><span
                             class="material-symbols-outlined google-symbol">close</span></button>
                     <div>
@@ -36,7 +36,7 @@
                         <label for="end">End Date: </label>
                         <input type="date" id="end" name="trip-end" min="1999-01-15">
                     </div>
-                    <button id="update-time">Update Time</button>
+                    <button id="update-time">Update chart</button>
                 </div>
             </div>
 
@@ -55,13 +55,13 @@
             </div>
 
             <!-- The chart -->
-            <div style="width: 100%; aspect-ratio: 2/1;">
-                <div class="chart-container" style="height: 100%;">
-                    <div class="chart-wrapper" style="height: 100%;">
-                        <canvas id="myChart"></canvas>
-                    </div>
+            <!-- <div style="width: 100%; aspect-ratio: 2/1;"> -->
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <canvas id="myChart"></canvas>
                 </div>
             </div>
+            <!-- </div> -->
 
         </div>
 

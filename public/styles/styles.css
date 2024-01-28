@@ -476,9 +476,13 @@
 #search-button {
     border-left: none;
     display: inline;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     width: 50px;
     height: 100%;
+}
+
+#search-outcome {
+    min-width: 100px;
 }
 
 .stocks-app-controls>button {
@@ -488,6 +492,20 @@
 
 .stocks-modal {
     overflow: auto;
+    margin-bottom: 0;
+}
+
+.update-time-modal-content {
+    gap: 1.5rem;
+}
+
+.update-time-modal-content div {
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+.update-time-modal-content input {
+    width: 100%;
     margin-bottom: 0;
 }
 
@@ -502,5 +520,16 @@
 
 .available-choices {
     display: inline;
+    margin-bottom: 0;
+}
+
+.chart-container {
+    width: 100%;
+    margin-bottom: 0;
+    aspect-ratio: 2/1;
+}
+
+.chart-wrapper {
+    height: 100%;
     margin-bottom: 0;
 }
