@@ -1,5 +1,6 @@
-/* ------------------------------------- MAIN PAGE ------------------------------------- */
-/* Intro Section */
+/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------- MAIN PAGE ----------------------------------------- */
+/* Profile Section */
 .intro-wrapper {
     display: flex;
     justify-content: center;
@@ -15,25 +16,19 @@
     max-height: 80vh;
 }
 
-.intro-wrapper span {
+.profile-text span {
     display: block;
     font-size: calc(var(--font-size-unit) * 3);
     margin-bottom: calc(var(--space-unit) * 1);
 }
 
-.intro-wrapper p {
+.profile-text p {
     text-align: justify;
     max-width: 550px;
 }
 
-.intro-wrapper div,
-.intro-wrapper p {
-    margin-bottom: 0;
-}
-
 /* Art Section and Apps Section*/
-.art-categories,
-.app-wrapper {
+.hobby-categories {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -43,39 +38,30 @@
     margin: auto;
 }
 
-.art-apps-cards {
-    max-height: 80vh;
-    display: flex;
-    align-items: center;
-}
-
-.art-categories div,
-.app-wrapper div {
+.hobby-wrapper {
     flex: 1;
     min-width: 280px;
 }
 
-.art-categories div div,
-.app-wrapper div div {
+.hobby-cards {
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
     border: 1px solid var(--border-color);
     overflow: hidden;
 }
 
-.art-categories img,
-.app-wrapper img {
+.hobby-cards img {
     vertical-align: bottom;
     transition: 0.2s;
 }
 
-.art-categories img:hover,
-.app-wrapper img:hover {
+.hobby-cards img:hover {
     scale: 1.1;
 }
 
-.art-categories>div,
-.art-categories>div>p,
-.app-wrapper>div,
-.app-wrapper>div>p {
+.hobby-wrapper,
+.hobby-wrapper>div>p {
     margin-bottom: 0;
 }
 
@@ -99,7 +85,7 @@
     margin: auto;
 }
 
-/* ----------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------ */
 /* ------------------------------------- CONTACT RESULT ------------------------------------- */
 .contact-result {
     flex-grow: 1;
@@ -111,56 +97,56 @@
 
 /* ----------------------------------------------------------------------------------------- */
 /* ------------------------------------- PHOTO GALLERY ------------------------------------- */
-.photography {
+.photo-gallery-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: calc(var(--alt-space-unit) * 2);
     margin-bottom: 0;
 }
 
-.photography div {
+.photo-gallery-wrapper div {
     max-width: 100%;
     overflow: hidden;
     border: 1px solid var(--border-color);
     margin-bottom: 0;
 }
 
-.photography img {
+.photo-gallery-wrapper img {
     vertical-align: bottom;
     object-fit: cover;
     transition: 0.2s;
 }
 
-.photography img:hover {
+.photo-gallery-wrapper img:hover {
     scale: 1.1;
     transition: 0.2s;
 }
 
 /* ----------------------------------------------------------------------------------------- */
-/* ------------------------------------- ART GALLERY ------------------------------------- */
-.artwork {
+/* ------------------------------------- ART GALLERY --------------------------------------- */
+.dry-media-wrapper {
     display: flex;
     flex-wrap: wrap;
     gap: calc(var(--alt-space-unit) * 2);
     margin-bottom: 0;
 }
 
-.artwork div {
+.dry-media-wrapper div {
     overflow: hidden;
     border: 1px solid var(--border-color);
     margin-bottom: 0;
 }
 
-.artwork img {
+.dry-media-wrapper img {
     transition: 0.2s;
 }
 
-.artwork img:hover {
+.dry-media-wrapper img:hover {
     scale: 1.1;
 }
 
 /* ----------------------------------------------------------------------------------------- */
-/* ------------------------------------- Image VIEWER ------------------------------------- */
+/* ------------------------------------- Image VIEWER -------------------------------------- */
 .image-viewer-body {
     overflow: hidden;
 }

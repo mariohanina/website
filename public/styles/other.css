@@ -37,7 +37,7 @@ nav a:first-child {
 @media (max-width: 1200px) {
 
     /* PHOTO GALLERY  &&  FLASHCARDS MAIN PAGE */
-    .photography,
+    .photo-gallery-wrapper,
     .flashcards-categories {
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -46,7 +46,7 @@ nav a:first-child {
 @media (max-width: 992px) {
 
     /* PHOTO GALLERY  &&  FLASHCARDS MAIN PAGE */
-    .photography,
+    .photo-gallery-wrapper,
     .flashcards-categories {
         grid-template-columns: 1fr 1fr;
     }
@@ -95,16 +95,16 @@ nav a:first-child {
     }
 
     /* PHOTO GALLERY  &&  FLASHCARDS MAIN PAGE */
-    .photography,
+    .photo-gallery-wrapper,
     .flashcards-categories {
         grid-template-columns: 1fr;
     }
 
-    .photography img {
+    .photo-gallery-wrapper img {
         height: auto;
     }
 
-    .artwork div {
+    .dry-media-wrapper div {
         width: initial !important;
         max-width: none !important;
 

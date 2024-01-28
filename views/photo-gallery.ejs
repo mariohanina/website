@@ -7,9 +7,9 @@
 
     <%- include("templates/navbar") -%>
 
-    <section id="photography">
+    <section>
         <h1 class="text-center">The Photo Gallery</h1>
-        <div class="photography"></div>
+        <div class="photo-gallery-wrapper"></div>
     </section>
 
     <%- include("templates/copyright", {
@@ -22,9 +22,9 @@
 <script>
     let photos = '<%- allImages %>';
     photos = photos.split(",");
-    const photography = document.querySelector(".photography");
+    const photoGalleryWrapper = document.querySelector(".photo-gallery-wrapper");
     for (const photo of photos) {
-        photography.innerHTML += `<div>
+        photoGalleryWrapper.innerHTML += `<div>
             <a href="/image-viewer/photography/${photo}">
                 <img src="images/photography/thumbnails/${photo}" height="220" width="320">
             </a>

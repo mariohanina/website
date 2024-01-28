@@ -4,6 +4,8 @@ Prevent the Image Viewer from panning beyond the edge of the image.    POSTPONAB
 Add buttons for the Image Viewer to Navigate throught the images even when inside the viewer.    POSTPONABLE
 When a user hits the back button in the gallery, send them to main page, not to previous image.    POSTPONABLE
 Add Pinch in/out.    AT THE END
+Make image not draggeble
+Update Instructions
 
 APPS
 Fix the "the" problem in the game.
@@ -21,7 +23,20 @@ GENERAL
 Make the Navbar collapsable.    POSTPONABLE
 Decide on the profile picture.    POSTPONABLE
 Fix the text content.    AT THE END
-REVISIT STOCKS.JS, ALL CSS FILES, ALL TEMPELATES, ALL VIEWS AND APP.JS AND LAYOUT.JS
+ADD WATER COLOR FOR WET MEDIA
+
+REVISIT:
+Styles.CSS
+Other.CSS
+Copyright.ejs
+Head.ejs
+navbar.ejs
+flashcards-quiz.ejs
+flashcards.ejs
+image-viewer.ejs
+stocks.ejs
+App.js
+Layout.js
 
 NOTES:
 When using Route Parameters with Node.js, we have to start links and URLs with a leading "/".
