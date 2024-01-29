@@ -12,7 +12,7 @@
 
 .profile-picture {
     width: auto;
-    max-width: 214px;
+    max-width: 164px;
     max-height: 80vh;
 }
 
@@ -24,7 +24,7 @@
 
 .profile-text p {
     text-align: justify;
-    max-width: 550px;
+    max-width: 400px;
 }
 
 /* Art Section and Apps Section*/
@@ -147,28 +147,28 @@
 
 /* ----------------------------------------------------------------------------------------- */
 /* ------------------------------------- Image VIEWER -------------------------------------- */
-.image-viewer-body {
+.iv-body {
     overflow: hidden;
 }
 
-.image-viewer-body * {
+.iv-body * {
     -webkit-user-select: none;
     user-select: none;
 }
 
 /* Directions Modal */
-#directions-modal {
+.iv-directions-wrapper {
     margin-bottom: 0;
 }
 
-#directions-modal * {
+.iv-directions-wrapper * {
     -webkit-user-select: text;
     user-select: text;
 }
 
-#directions-modal button {
-    display: block;
-    margin: auto;
+.iv-directions-wrapper .google-symbol {
+    display: inline;
+    vertical-align: middle;
 }
 
 .stop-showing-wrapper input,
@@ -177,6 +177,7 @@
     margin-bottom: 0;
 }
 
+/* The Image */
 #image-container {
     height: 100%;
     width: 100%;
@@ -201,32 +202,35 @@
     object-fit: contain;
 }
 
-.ui {
+/* Buttons */
+.iv-button-wrapper {
+    display: flex;
+    justify-content: end;
+}
+
+.iv-ui {
     position: fixed;
     display: flex;
     flex-direction: column;
-}
-
-.ui>* {
+    gap: 5px;
     margin-top: 5px;
     margin-right: 5px;
 }
 
-
-.ui button {
+.iv-ui button {
     width: 40px;
     height: 40px;
     padding: 3px;
     opacity: 0.5;
 }
 
-.ui button:hover {
+.iv-ui button:hover {
     opacity: 1;
     background-color: var(--main-bg-color);
 }
 
 /* ----------------------------------------------------------------------------------------- */
-/* ------------------------------------- FLASHCARDS APP ------------------------------------- */
+/* ------------------------------------- FLASHCARDS MAIN ----------------------------------- */
 .flashcards-categories {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -252,7 +256,7 @@
 
 /* ----------------------------------------------------------------------------------------- */
 /* ------------------------------------- FLASHCARDS QUIZ ------------------------------------- */
-/* APP BAR THAT CONTAINS THE SCORE AND THE BACK LINK */
+/* App bar contains score and back link */
 .app-bar {
     max-width: 600px;
     margin-left: auto;
@@ -312,6 +316,10 @@
     width: 100%;
 }
 
+.card input:focus {
+    background-color: rgba(0, 0, 0, 1);
+}
+
 .card button {
     background-color: rgba(0, 0, 0, 0.1);
 }
@@ -320,9 +328,6 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.card input:focus {
-    background-color: rgba(0, 0, 0, 1);
-}
 
 /* CARD BACK */
 .card-back {
@@ -334,7 +339,7 @@
 }
 
 /* BUTTONS */
-.fc-buttons-wrapper {
+.flashcards-buttons-wrapper {
     width: 100%;
     max-width: 600px;
     margin: auto;
@@ -344,155 +349,27 @@
     gap: calc(var(--space-unit) * 2);
 }
 
-.fc-buttons-wrapper button {
+.flashcards-buttons-wrapper button {
     flex: 1;
-}
-
-/* MODAL */
-.fading-modal {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Modal Animation */
-    -webkit-animation-name: fadeIn;
-    -webkit-animation-duration: 0.3s;
-    animation-name: fadeIn;
-    animation-duration: 0.3s
-}
-
-.modal-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: var(--main-bg-color);
-    padding: calc(var(--space-unit) * 3);
-    margin: 0 calc(var(--space-unit) * 1);
-    width: 100%;
-    max-width: 500px;
-    max-height: calc(100vh - ((var(--space-unit) * 3) * 2));
-    overflow: auto;
-    position: relative;
-    /* Modal animation */
-    -webkit-animation-name: fadeIn;
-    -webkit-animation-duration: 0.3s;
-    animation-name: fadeIn;
-    animation-duration: 0.3s
-}
-
-.closeBtn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    padding: 3px;
-    border: none;
-}
-
-@-webkit-keyframes fadeIn {
-    from {
-        opacity: 0
-    }
-
-    to {
-        opacity: 1
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0
-    }
-
-    to {
-        opacity: 1
-    }
+    padding: calc(var(--space-unit) * 1) calc(var(--space-unit) * 2);
 }
 
 /* ----------------------------------------------------------------------------------------- */
-/* ------------------------------------- FLASHCARDS QUIZ ------------------------------------- */
-.stocks-main-wrapper {
+/* ------------------------------------- STOCKS APP ---------------------------------------- */
+.sa-wrapper {
     width: 100%;
     max-width: 800px;
     margin: auto;
 }
 
-.stocks-app-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: calc(var(--space-unit) * 1);
-    margin-bottom: calc(var(--space-unit) * 2);
-}
-
-.stocks-app-info>span {
-    margin-right: calc(var(--space-unit) * 4);
-}
-
-.stocks-app-info * {
-    margin-bottom: 0;
-}
-
-.stocks-app-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: calc(var(--space-unit) * 1);
-    flex-grow: 1;
-}
-
-.stocks-app-controls>div {
-    flex-grow: 19;
-}
-
-#search-input {
-    vertical-align: top;
-    padding: 0.5rem 1rem;
-    border-right: none;
-    display: inline;
-    height: 100%;
-    width: calc(100% - 50px);
-}
-
-#search-button {
-    border-left: none;
-    display: inline;
-    padding: 0.5rem;
-    width: 50px;
-    height: 100%;
-}
-
-#search-outcome {
-    min-width: 100px;
-}
-
-.stocks-app-controls>button {
-    flex-grow: 1;
-    padding: calc(var(--alt-space-unit) * 1) calc(var(--alt-space-unit) * 2);
-}
-
+/* Search Modal */
 .stocks-modal {
     overflow: auto;
     margin-bottom: 0;
 }
 
-.update-time-modal-content {
-    gap: 1.5rem;
-}
-
-.update-time-modal-content div {
-    flex-grow: 1;
-    margin-bottom: 0;
-}
-
-.update-time-modal-content input {
-    width: 100%;
-    margin-bottom: 0;
+.stocks-modal div {
+    min-width: 100px;
 }
 
 #get-data {
@@ -500,6 +377,22 @@
     margin: auto;
 }
 
+/* Time Modal */
+.update-time-modal {
+    gap: calc(var(--space-unit) * 2);
+}
+
+.update-time-modal div {
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+.update-time-modal input {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+/* Displayed by JS */
 .available-choices-label {
     margin-bottom: calc(var(--alt-space-unit) * 1);
 }
@@ -509,6 +402,57 @@
     margin-bottom: 0;
 }
 
+/* Company name and controls */
+.sa-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: calc(var(--space-unit) * 1);
+    margin-bottom: calc(var(--space-unit) * 2);
+}
+
+.sa-info * {
+    margin-bottom: 0;
+}
+
+.sa-info>span {
+    margin-right: calc(var(--space-unit) * 4);
+}
+
+.sa-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--space-unit) * 1);
+    flex-grow: 1;
+}
+
+.sa-search-tools {
+    flex-grow: 19;
+}
+
+.sa-search-tools input {
+    vertical-align: top;
+    padding: 0.5rem;
+    border-right: none;
+    display: inline;
+    height: 100%;
+    width: calc(100% - 50px);
+}
+
+.sa-search-tools button {
+    border-left: none;
+    display: inline;
+    padding: 0.5rem;
+    width: 50px;
+    height: 100%;
+}
+
+.sa-controls button {
+    flex-grow: 1;
+    padding: calc(var(--alt-space-unit) * 1) calc(var(--alt-space-unit) * 2);
+}
+
+/* The chart */
 .chart-container {
     width: 100%;
     margin-bottom: 0;

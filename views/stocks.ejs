@@ -9,12 +9,12 @@
 
     <section style="flex-grow: 1;">
 
-        <div class="stocks-main-wrapper">
+        <div class="sa-wrapper">
 
-            <!-- Modal that displays available companies -->
+            <!-- Search Modal -->
             <div id="modal" class="fading-modal">
                 <div class="modal-content">
-                    <button class="closeBtn" id="close"><span
+                    <button class="close-button" id="close"><span
                             class="material-symbols-outlined google-symbol">close</span></button>
                     <div class="stocks-modal">
                         <div id="search-outcome"></div>
@@ -23,10 +23,10 @@
                 </div>
             </div>
 
-            <!-- Modal that allows us to update time -->
+            <!-- Time Modal -->
             <div id="time-modal" class="fading-modal">
-                <div class="modal-content update-time-modal-content">
-                    <button class="closeBtn" id="time-close"><span
+                <div class="modal-content update-time-modal">
+                    <button class="close-button" id="time-close"><span
                             class="material-symbols-outlined google-symbol">close</span></button>
                     <div>
                         <label for="start">Start Date: </label>
@@ -41,10 +41,10 @@
             </div>
 
             <!-- company name and controls -->
-            <div class="stocks-app-info">
+            <div class="sa-info">
                 <span class="large-text" id="company-id">Company Name</span>
-                <div class="stocks-app-controls">
-                    <div>
+                <div class="sa-controls">
+                    <div class="sa-search-tools">
                         <input id="search-input" type="text" placeholder="e.g., MicroSoft, #AAPL"><button
                             id="search-button"><span
                                 class="material-symbols-outlined google-symbol">search</span></button>

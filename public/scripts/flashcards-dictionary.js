@@ -157,7 +157,7 @@ dictionary = {
         "Noviembre": ["November"],
         "Diciembre": ["December"],
         "El año": ["Year"]
-    }, words: {
+    }, commonWords: {
         "¡Bienvenidos!": ["Welcome"],
         "Saludos": ["Greetings", "Regards"],
         "Soy": ["I am", "Am"],

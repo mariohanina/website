@@ -8,6 +8,18 @@
     <%- include("templates/navbar") -%>
 
     <section style="flex-grow: 1;">
+
+        <!-- The modal -->
+        <div id="modal" class="fading-modal">
+            <div class="modal-content">
+                <button class="close-button" id="close"><span
+                        class="material-symbols-outlined google-symbol">close</span></button>
+                <span class="larger-text m-b-2">Great job!</span>
+                <span>You've guessed all the words, go back and try another category.</span>
+            </div>
+        </div>
+
+        <!-- App bar -->
         <div class="app-bar">
             <a class="no-decoration" href="/apps/flashcards"><span class="material-symbols-outlined">
                     arrow_back
@@ -31,32 +43,22 @@
         </div>
 
         <!-- The buttons -->
-        <div class="fc-buttons-wrapper">
-            <button id="reset">reset progress</button>
-            <button id="reveal">reveal answer</button>
+        <div class="flashcards-buttons-wrapper">
+            <button id="reset">Reset progress</button>
+            <button id="reveal">Reveal answer</button>
             <button id="check-answer">Done</button>
         </div>
 
     </section>
-
-    <!-- The modal -->
-    <div id="modal" class="fading-modal">
-        <div class="modal-content">
-            <button class="closeBtn" id="close"><span
-                    class="material-symbols-outlined google-symbol">close</span></button>
-            <span class="larger-text m-b-2">Great job!</span>
-            <span>You've guessed all the words, go back and try another category.</span>
-        </div>
-    </div>
 
     <%- include("templates/copyright", {
         liSrc: "../../images/logos/linkedin.png", 
         ghSrc: "../../images/logos/github.png"
     }); %>
 
-    <script src="/scripts/dictionary.js"></script>
+    <script src="/scripts/flashcards-dictionary.js"></script>
     <script>const urlParam = '<%- urlParam %>';</script>
-    <script src="/scripts/fc-quiz.js"></script>
+    <script src="/scripts/flashcards-quiz.js"></script>
 
 </body>
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("templates/head", {title: "Flashcards"}); %>
+
+<body>
+
+    <%- include("templates/navbar") -%>
+
+    <section style="flex-grow: 1;">
+        <h1 class="text-center">The Spanish Flashcards App.</h1>
+        <p>Choose a word category and start playing:</p>
+
+        <div class="flashcards-categories"></div>
+    </section>
+
+    <%- include("templates/copyright", {
+        liSrc: "../images/logos/linkedin.png", 
+        ghSrc: "../images/logos/github.png"
+    }); %>
+
+    <script src="/scripts/flashcards-dictionary.js"></script>
+    <script src="/scripts/flashcards-main.js"></script>
+
+</body>
+
+</html>

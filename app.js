@@ -30,7 +30,7 @@ app.get("/image-viewer/:folder/:image", (req, res) => {
         closeButtonLink: (`/${(req.params.folder == "drawings") ? "art-gallery" : "photo-gallery"}`)
     });
 })
-app.get("/apps/flashcards", (req, res) => { res.render("flashcards"); })
+app.get("/apps/flashcards", (req, res) => { res.render("flashcards-main"); })
 app.get("/apps/flashcards/:category", (req, res) => {
     res.render("flashcards-quiz", { urlParam: req.params.category });
 })

@@ -3,18 +3,65 @@
 
 <%- include("templates/head", {title: "Image Viewer"}); %>
 
-<body class="image-viewer-body">
+<body class="iv-body">
+
+    <!-- Directions modal -->
+    <div id="modal" class="fading-modal">
+        <div class="modal-content">
+            <button class="close-button" id="stop-showing-btn"><span
+                    class="material-symbols-outlined google-symbol">close</span></button>
+            <div class="iv-directions-wrapper">
+                <p class="larger-text m-b-2">Controls:</p>
+                <ul>
+
+                    <li>
+                        To zoom in/out:
+                        <ul>
+                            <li>Use the scroll wheel on the mouse.</li>
+                            <li>Pinch in/out using the touchscreen or the touchpad.</li>
+                            <li>Use the <span class="material-symbols-outlined google-symbol">zoom_in</span>/<span
+                                    class="material-symbols-outlined google-symbol">zoom_out</span> buttons in the top
+                                right corner.</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        To pan:
+                        <ul>
+                            <li>Click and drag.</li>
+                            <li>Touch and drag.</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        To restore the default position:
+                        <ul>
+                            <li>Double click.</li>
+                            <li>Double tap.</li>
+                            <li>Use the <span class="material-symbols-outlined google-symbol">zoom_out_map</span>
+                                button in the top right corner.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="stop-showing-wrapper">
+                    <input id="stop-showing" type="checkbox">
+                    <label for="stop-showing">Don't show again.</label>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- The image -->
     <div id="image-container">
         <div class="display-area">
-            <img class="display-image" src=<%= imageSource %>>
+            <img class="display-image" draggable="false" src=<%= imageSource %>>
         </div>
     </div>
 
     <!-- The buttons -->
-    <div style="display: flex; justify-content: end;">
-        <div class="ui">
+    <div class="iv-button-wrapper">
+        <div class="iv-ui">
             <a href=<%= closeButtonLink %>>
                 <button id="close" title="Close">
                     <span class="material-symbols-outlined google-symbol">close</span>
@@ -32,51 +79,7 @@
         </div>
     </div>
 
-    <!-- The modal -->
-    <div id="modal" class="fading-modal">
-        <div class="modal-content">
-            <button class="closeBtn" id="stop-showing-btn"><span
-                    class="material-symbols-outlined google-symbol">close</span></button>
-            <div id="directions-modal">
-                <p class="larger-text m-b-2">Directions:</p>
-                <ul>
-
-                    <li>
-                        To zoom in/out:
-                        <ul>
-                            <li>Use the scroll wheel on the mouse.</li>
-                            <li>Pinch in/out using the touchscreen or the touchpad.</li>
-                            <li>Use the +/- buttons on the top right corner.</li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        To pan:
-                        <ul>
-                            <li>Click and drag.</li>
-                            <li>Touch and drag.</li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        To restore the default position:
-                        <ul>
-                            <li>Double click.</li>
-                            <li>Double tap.</li>
-                            <li>Use the magnifier button.</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <div class="stop-showing-wrapper">
-                    <input id="stop-showing" type="checkbox">
-                    <label for="stop-showing">Don't show again.</label>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="/scripts/image-displayer.js"></script>
+    <script src="/scripts/image-viewer.js"></script>
 
 </body>
 

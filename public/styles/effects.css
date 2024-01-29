@@ -31,6 +31,73 @@ nav a:first-child {
     padding-left: calc(var(--alt-space-unit) * 4);
 }
 
+/* MODAL */
+.fading-modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Modal Animation */
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 0.3s;
+    animation-name: fadeIn;
+    animation-duration: 0.3s
+}
+
+.modal-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--main-bg-color);
+    padding: calc(var(--space-unit) * 3);
+    margin: 0 calc(var(--space-unit) * 1);
+    width: 100%;
+    max-width: 500px;
+    max-height: calc(100vh - ((var(--space-unit) * 3) * 2));
+    overflow: auto;
+    position: relative;
+    /* Modal animation */
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 0.3s;
+    animation-name: fadeIn;
+    animation-duration: 0.3s
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 3px;
+    border: none;
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
 /* ----------------------------------------------------------------------------------------- */
 /* ------------------------------------- MEDIA QUERIES ------------------------------------- */
 
@@ -111,7 +178,7 @@ nav a:first-child {
     }
 
     /* IMAGE VIEWER */
-    .ui {
+    .iv-ui {
         flex-direction: row-reverse;
     }
 
