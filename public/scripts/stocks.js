@@ -23,7 +23,8 @@ const updateTimeBtn = document.querySelector("#update-time");
 const oneYear = 31536000000;
 let listOfCompanies = [];
 let companyInfo;
-let dateStyle = 0;
+let isDataOk = false;
+let dateStyle = 1;
 let maxTicks = 5;
 
 // Makes a get request
@@ -66,6 +67,7 @@ function matchingCompanies() {
                 })
                 .catch((err) => {
                     console.log("Frontend err");
+                    console.log(err);
                     searchOutcome.innerHTML = `<span class="large-text">An error occured!</span>`;
                 });
         } else {
@@ -92,13 +94,41 @@ function displayAvailableCompanies() {
             }
         });
     } else {
+        // listOfCompanies.forEach(element => {
+        //     if (element[1].toLowerCase().includes(input.value.toLowerCase())) {
+        //         matches += `<label class="available-choices-label" for="${element[0]}">
+        //         <input class="available-choices" type="radio" id="${element[0]}" 
+        //             name="chosen-company"> ${element[1]} <strong>(${element[0]})</strong></label>`
+        //     }
+        // });
+
+        // Search Logic
+        const sortedResults = [];
+
         listOfCompanies.forEach(element => {
-            if (element[1].toLowerCase().includes(input.value.toLowerCase())) {
-                matches += `<label class="available-choices-label" for="${element[0]}">
-                <input class="available-choices" type="radio" id="${element[0]}" 
-                    name="chosen-company"> ${element[1]} <strong>(${element[0]})</strong></label>`
-            }
+            const proccessedElement = element[1].toLowerCase().split(" ");
+            const proccessedInput = input.value.toLowerCase().trim().split(" ");
+            let count = 0;
+
+            for (word of proccessedInput) {
+                if (proccessedElement.includes(word)) {
+                    count++
+                } else {
+                    count -= 3;
+                }
+            };
+            if (count > 0) { sortedResults.push([element[0], element[1], count]) };
         });
+
+        if (sortedResults.length > 0) {
+            sortedResults.sort((first, second) => { return second[2] - first[2] });
+
+            for (const entry of sortedResults) {
+                matches += `<label class="available-choices-label" for="${entry[0]}">
+                        <input class="available-choices" type="radio" id="${entry[0]}" 
+                            name="chosen-company"> ${entry[1]} <strong>(${entry[0]})</strong></label>`
+            }
+        }
     }
 
     // If no matches were found we display this screen
@@ -121,7 +151,6 @@ function getData() {
 
         const listOfLabels = [];
         const closingPrice = [];
-        let codeTraversedSafely = true;
 
         postRequest("choices", usersChoice)
             .then(getRequest("information")
@@ -143,8 +172,9 @@ function getData() {
 
                         companyId.innerHTML = usersChoice;
                         updateChart(stocksChart, listOfLabels, closingPrice);
+                        isDataOk = true;
                     } catch (error) {
-                        codeTraversedSafely = false;
+                        isDataOk = false;
                     }
 
                     cleanUp()
@@ -164,6 +194,7 @@ function cleanUp() {
 
 // Change the time period for the data
 function changeTimeSpan(start, end) {
+
     const listOfLabels = [];
     const closingPrice = [];
 
@@ -171,26 +202,26 @@ function changeTimeSpan(start, end) {
     let selectedStartDate = new Date(start).getTime()
     let selectedEndDate = new Date(end).getTime()
 
-    // CHART STYLE RELATED CODE
-    // const timeSpan = selectedEndDate - selectedStartDate;
-    // let stepSize = Math.max(Math.floor((timeSpan / 4) / 604800000), 1)
-    // dateStyle = (timeSpan <= (oneYear * 2.5)) ?
-    //     ((timeSpan <= (oneYear * 2 / 12)) ? dateStyle = 0 : dateStyle = 1) : dateStyle = 2;
-    // stocksChart.config.options.scales.x.ticks.callback = 
+    if (isDataOk && selectedStartDate && selectedEndDate) {
+        // Chart labels style
+        const timeSpan = selectedEndDate - selectedStartDate;
+        dateStyle = (timeSpan <= (oneYear * 5)) ?
+            ((timeSpan <= (oneYear * 6 / 12)) ? dateStyle = 0 : dateStyle = 1) : dateStyle = 2;
 
-    // If a record falls in between the start and end dates we select it to be displayed
-    companyInfo.forEach(([key, value]) => {
-        let keyDate = new Date(key).getTime();
+        // If a record falls in between the start and end dates we select it to be displayed
+        companyInfo.forEach(([key, value]) => {
+            let keyDate = new Date(key).getTime();
 
-        if ((keyDate >= selectedStartDate) && (keyDate <= selectedEndDate)) {
-            listOfLabels.unshift(key);
-            closingPrice.unshift(value["5. adjusted close"]);
-        }
-    });
+            if ((keyDate >= selectedStartDate) && (keyDate <= selectedEndDate)) {
+                listOfLabels.unshift(key);
+                closingPrice.unshift(value["5. adjusted close"]);
+            }
+        });
 
-    // Update the chart
-    updateChart(stocksChart, listOfLabels, closingPrice);
-    timeModal.style.display = "none";
+        // Update the chart
+        updateChart(stocksChart, listOfLabels, closingPrice);
+        timeModal.style.display = "none";
+    }
 }
 
 // Updates the chart

@@ -1,6 +1,6 @@
 const wordCategory = dictionary[urlParam];
 const wordList = Object.keys(dictionary[urlParam]);
-const unwatedLetters = ["?", "!", " / ", "/ ", " /", "/", "-", "the"];
+const unwatedLetters = ["?", "!", " / ", "/ ", " /", "/", "-", "the "];
 
 const htmlScore = document.querySelector("#score");
 const question = document.querySelector("#question");
@@ -51,7 +51,11 @@ function updateAnswer(content) { answer.textContent = content; }
 // REMOVE UNWANTED CHARACTERS FROM THE WORDS SUCH AS ?, -, AND /
 function wordCleaner(word, letters) {
     let output = word.toLowerCase().trim();
-    letters.forEach(letter => { output = output.replaceAll(letter, " ") });
+    letters.forEach(letter => {
+        console.log("output before: " + output);
+        output = output.replaceAll(letter, " ")
+        console.log("output after: " + output);
+    });
     return output.trim();
 }
 

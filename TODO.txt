@@ -3,25 +3,22 @@ IMAGE VIEWER
 Prevent the Image Viewer from panning beyond the edge of the image.    POSTPONABLE
 Add buttons for the Image Viewer to Navigate throught the images even when inside the viewer.    POSTPONABLE
 When a user hits the back button in the gallery, send them to main page, not to previous image.    POSTPONABLE
-Add Pinch in/out.    AT THE END
 
 APPS
-Fix the "the" problem in the game.
-Add Enter Key Functionality.
-update the dictionary.
-Make Card text smaller on smaller screens
+Add Enter Key Functionality.    POSTPONABLE
+Improve the wordCleaner() and typoDetector() functions using regex.    POSTPONABLE
 
 STOCKS
-Handle and log errors better
-Improve displayAvailableCompanies() Function
-Catch errors in the getData function
-Fix the time label issue
+Handle and log errors better.    POSTPONABLE
+Catch errors in the getData function.
 
 GENERAL
 Make the Navbar collapsable.    POSTPONABLE
 Change the profile picture and decide a proper size for it.    POSTPONABLE
-Fix the text content.    AT THE END
-ADD WATER COLOR FOR WET MEDIA
+
+RIGHT BEFORE PUBLISHING
+ADD WATER COLOR FOR WET MEDIA.    AT THE END
+Add Pinch in/out.    AT THE END
 
 Revisit App.js
 

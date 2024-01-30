@@ -308,6 +308,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    word-break: break-all;
+    /* hyphens: auto; */
 }
 
 /* CARD FRONT */
@@ -368,7 +370,7 @@
     margin-bottom: 0;
 }
 
-.stocks-modal div {
+.stocks-modal>div {
     min-width: 100px;
 }
 
