@@ -73,9 +73,11 @@ app.get("/information", (req, res) => {
 
     }, (err, response, data) => {
         if (err) {
-            console.log('Error:', err);
+            console.log('Error location: (B-1). ', err);
+            res.send("Error")
         } else if (response.statusCode !== 200) {
-            console.log('Status:', response.statusCode);
+            console.log('Error location: (B-2). Status: ', response.statusCode);
+            res.send("Error");
         } else {
             res.status(200).json({ information: data });
         }

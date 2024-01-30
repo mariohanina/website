@@ -51,11 +51,7 @@ function updateAnswer(content) { answer.textContent = content; }
 // REMOVE UNWANTED CHARACTERS FROM THE WORDS SUCH AS ?, -, AND /
 function wordCleaner(word, letters) {
     let output = word.toLowerCase().trim();
-    letters.forEach(letter => {
-        console.log("output before: " + output);
-        output = output.replaceAll(letter, " ")
-        console.log("output after: " + output);
-    });
+    letters.forEach(letter => { output = output.replaceAll(letter, " ") });
     return output.trim();
 }
 

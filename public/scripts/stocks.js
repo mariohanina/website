@@ -68,7 +68,7 @@ function matchingCompanies() {
                 .catch((err) => {
                     console.log("Frontend err");
                     console.log(err);
-                    searchOutcome.innerHTML = `<span class="large-text">An error occured!</span>`;
+                    searchOutcome.innerHTML = `<span class="large-text">Sorry, an error occured!</span>`;
                 });
         } else {
             displayAvailableCompanies();
@@ -143,6 +143,7 @@ function displayAvailableCompanies() {
 
 // Get the data of the chose company and display it
 function getData() {
+    console.log("Get Data triggered.");
     // Finds out what the user's choice was (Which radio button is checked)
     const usersChoice = radioFinder(".available-choices")
     if (usersChoice) {
@@ -175,12 +176,28 @@ function getData() {
                         isDataOk = true;
                     } catch (error) {
                         isDataOk = false;
+                        searchOutcome.innerHTML = `<span class="large-text">Sorry, an error occured!</span>`;
+                        getDataBtn.style.display = "none";
+                        console.log("Error location: (B-4).");
+                        console.log(error);
                     }
 
                     cleanUp()
 
+                }).catch((error) => {
+                    isDataOk = false;
+                    searchOutcome.innerHTML = `<span class="large-text">Sorry, an error occured!</span>`;
+                    getDataBtn.style.display = "none";
+                    console.log("Error location: (B-4).");
+                    console.log(error);
                 })
-            )
+            ).catch((error) => {
+                isDataOk = false;
+                searchOutcome.innerHTML = `<span class="large-text">Sorry, an error occured!</span>`;
+                getDataBtn.style.display = "none";
+                console.log("Error location: (B-5).");
+                console.log(error);
+            })
     }
 }
 
