@@ -11,6 +11,8 @@ Handle and log errors better.    POSTPONABLE
 GENERAL
 Make the Navbar collapsable.    POSTPONABLE
 Change the profile picture and decide a proper size for it.    POSTPONABLE
+Change pictures container to <figure> instead of <div>.    POSTPONABLE
+Fix arrow functions syntax: no parantheses if one param, no braces if one-liner.
 
 RIGHT BEFORE PUBLISHING
 ADD WATER COLOR FOR WET MEDIA.    AT THE END
