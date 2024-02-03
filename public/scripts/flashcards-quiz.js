@@ -2,26 +2,34 @@ const wordCategory = dictionary[urlParam];
 const wordList = Object.keys(dictionary[urlParam]);
 const unwatedLetters = ["?", "!", " / ", "/ ", " /", "/", "-", "the "];
 
+// The score element
 const htmlScore = document.querySelector("#score");
+// Elements on front of card
 const question = document.querySelector("#question");
 const userInput = document.getElementById("user-input");
+// Elements on back of card
 const answer = document.querySelector("#answer");
 const message = document.querySelector("#message");
 const continueButton = document.querySelector("#continue");
+// Card container divs
 const card = document.querySelector(".card-inner");
 const cardBack = document.querySelector(".card-back");
+// Bu-ttons elements
 const checkAnswerButton = document.querySelector("#check-answer");
 const revealButton = document.querySelector("#reveal");
 const resetButton = document.querySelector("#reset");
+// Modal elements
 const modal = document.querySelector("#modal");
 const close = document.querySelector("#close");
 
+// User progress cookie
 let guessed = localStorage.getItem(urlParam) ? JSON.parse(localStorage.getItem(urlParam)) : [];
+// Other required variables  
 let unguessed = [];
 let score = 0;
 let randomNumber = 0;
 
-// GENERATE A RANDOM NUMBER
+// Generate a random number
 function randomNum() {
     let temp = Math.floor(Math.random() * unguessed.length);
     if (temp === randomNumber && unguessed.length > 1) {
@@ -31,7 +39,7 @@ function randomNum() {
     }
 }
 
-// SEPERATE GUESSED WORDS FROM UNGUESSED ONES
+// Separate guessed words from unguessed ones
 function seperateWords() {
     unguessed = [];
     for (const word of wordList) {
@@ -39,16 +47,17 @@ function seperateWords() {
     }
 }
 
-// CALCULATE THE SCORE
+// Calculate the score
 function calculateScore() { score = wordList.length - unguessed.length; }
-// UPDATE THE SCORE ON THE WEBSITE
-function updateScore() { htmlScore.textContent = `Score: ${score}/${wordList.length}`; }
-// UPDATE THE HTML QUESTION ELEMENT
+// Update the score on the website
+function updateScore() {
+    htmlScore.textContent = `Score: ${score}/${wordList.length}`;
+}
+// Update the html Question/Answer elements
 function updateQuestion(content) { question.textContent = content; }
-// UPDATE THE HTML ANSWER ELEMENT
 function updateAnswer(content) { answer.textContent = content; }
 
-// REMOVE UNWANTED CHARACTERS FROM THE WORDS SUCH AS ?, -, AND /
+// Remove unwanted characters from the words such as ?, -, and /
 function wordCleaner(word, letters) {
     let output = word.toLowerCase().trim();
     letters.forEach(letter => { output = output.replaceAll(letter, " ") });
