@@ -96,10 +96,14 @@ function flipCard(degree) {
 }
 
 // CHECK IF ANSWER IS CORRECT
-function checkAnswer() {
+function checkAnswer(evt) {
+    evt.currentTarget.blur();
+    console.log("checkAnswer()");
     if (unguessed.length === 0) {
         modal.style.display = "flex";
+        console.log("checkAnswer() -- game over");
     } else {
+        console.log("checkAnswer() -- normally logs");
         removeEvents();
 
         const answerList = wordCategory[unguessed[randomNumber]];
@@ -109,6 +113,7 @@ function checkAnswer() {
             typoDetector(cleanedUserInput, cleanedAnswerList, answerList);
 
         if (condition) {
+            console.log("checkAnswer() -- answer correct");
             // If user answered correctly, save their progress and update the screen
             guessed.push(unguessed[randomNumber]);
             localStorage.setItem(urlParam, JSON.stringify(guessed));
@@ -123,6 +128,7 @@ function checkAnswer() {
 
             flipCard(180);
         } else {
+            console.log("checkAnswer() -- answer wrong");
             // Otherwise, notify them, and update the screen.
             message.textContent = userInput.value === "" ?
                 `You didn't type anything!` : `Wrong answer! You typed: "${userInput.value}"`;
@@ -136,7 +142,9 @@ function checkAnswer() {
 }
 
 // RESET THE CARD AND NOTIFY THE USER OF THE NEXT PHASE IN THE GAME
-function procceed() {
+function procceed(evt) {
+    evt.currentTarget.blur();
+    console.log("procceed()");
     addEvents();
 
     userInput.value = "";
@@ -191,6 +199,10 @@ function removeEvents() {
     revealButton.removeEventListener("click", revealAnswer);
     resetButton.removeEventListener("click", resetProgress);
 }
+
+document.addEventListener('keypress', enterKeyFunc);
+
+function enterKeyFunc(e) { if (e.key === 'Enter') checkAnswerButton.click() }
 
 // START UP THE GAME
 seperateWords();
