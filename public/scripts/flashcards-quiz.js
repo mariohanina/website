@@ -96,14 +96,10 @@ function flipCard(degree) {
 }
 
 // CHECK IF ANSWER IS CORRECT
-function checkAnswer(evt) {
-    evt.currentTarget.blur();
-    console.log("checkAnswer()");
+function checkAnswer() {
     if (unguessed.length === 0) {
         modal.style.display = "flex";
-        console.log("checkAnswer() -- game over");
     } else {
-        console.log("checkAnswer() -- normally logs");
         removeEvents();
 
         const answerList = wordCategory[unguessed[randomNumber]];
@@ -113,7 +109,6 @@ function checkAnswer(evt) {
             typoDetector(cleanedUserInput, cleanedAnswerList, answerList);
 
         if (condition) {
-            console.log("checkAnswer() -- answer correct");
             // If user answered correctly, save their progress and update the screen
             guessed.push(unguessed[randomNumber]);
             localStorage.setItem(urlParam, JSON.stringify(guessed));
@@ -128,7 +123,6 @@ function checkAnswer(evt) {
 
             flipCard(180);
         } else {
-            console.log("checkAnswer() -- answer wrong");
             // Otherwise, notify them, and update the screen.
             message.textContent = userInput.value === "" ?
                 `You didn't type anything!` : `Wrong answer! You typed: "${userInput.value}"`;
@@ -142,9 +136,7 @@ function checkAnswer(evt) {
 }
 
 // RESET THE CARD AND NOTIFY THE USER OF THE NEXT PHASE IN THE GAME
-function procceed(evt) {
-    evt.currentTarget.blur();
-    console.log("procceed()");
+function procceed() {
     addEvents();
 
     userInput.value = "";
@@ -188,6 +180,7 @@ function addEvents() {
     checkAnswerButton.addEventListener("click", checkAnswer);
     revealButton.addEventListener("click", revealAnswer);
     resetButton.addEventListener("click", resetProgress);
+    userInput.focus();
 }
 
 // REMOVE ALL EVENTS AND MAKE THEM TRANSLUCENT
@@ -200,9 +193,14 @@ function removeEvents() {
     resetButton.removeEventListener("click", resetProgress);
 }
 
-document.addEventListener('keypress', enterKeyFunc);
-
-function enterKeyFunc(e) { if (e.key === 'Enter') checkAnswerButton.click() }
+// Adds the enter key functionality
+userInput.addEventListener('keypress', (event) => {
+    console.log("EVENT LISTENER");
+    if (event.key === 'Enter') {
+        checkAnswerButton.click()
+        continueButton.focus();
+    }
+});
 
 // START UP THE GAME
 seperateWords();
