@@ -12,6 +12,7 @@ When a user hits the back button in the gallery, send them to main page, not to 
 
 APPS
 Improve the wordCleaner() and typoDetector() functions using regex.    POSTPONABLE
+Make it so that to most matching word is displayed even if the answer is wrong.    POSTPONABLE
 
 
 STOCKS
