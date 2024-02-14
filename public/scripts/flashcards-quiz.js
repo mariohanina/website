@@ -1,6 +1,6 @@
 const wordCategory = dictionary[urlParam];
 const wordList = Object.keys(dictionary[urlParam]);
-const unwatedLetters = ["?", "!", " / ", "/ ", " /", "/", "-", "the "];
+const unwatedLetters = ["?", "¡", "!", "'", " / ", "/ ", " /", "/", "-"];
 
 // The score element
 const htmlScore = document.querySelector("#score");
@@ -16,7 +16,7 @@ const card = document.querySelector(".card-inner");
 const cardBack = document.querySelector(".card-back");
 // Bu-ttons elements
 const checkAnswerButton = document.querySelector("#check-answer");
-const revealButton = document.querySelector("#reveal");
+// const revealButton = document.querySelector("#reveal");
 const resetButton = document.querySelector("#reset");
 // Modal elements
 const modal = document.querySelector("#modal");
@@ -154,13 +154,13 @@ function procceed() {
     flipCard(0);
 }
 
-function revealAnswer() {
-    if (unguessed.length > 0) {
-        updateAnswer(wordCategory[unguessed[randomNumber]][0]);
-        removeEvents();
-        flipCard(180);
-    }
-}
+// function revealAnswer() {
+//     if (unguessed.length > 0) {
+//         updateAnswer(wordCategory[unguessed[randomNumber]][0]);
+//         removeEvents();
+//         flipCard(180);
+//     }
+// }
 
 function resetProgress() {
     guessed = [];
@@ -175,10 +175,10 @@ function resetProgress() {
 // ADD ALL EVENTS AND MAKE THEM CLEARLY VISIBLE
 function addEvents() {
     checkAnswerButton.style.opacity = "1";
-    revealButton.style.opacity = "1";
+    // revealButton.style.opacity = "1";
     resetButton.style.opacity = "1";
     checkAnswerButton.addEventListener("click", checkAnswer);
-    revealButton.addEventListener("click", revealAnswer);
+    // revealButton.addEventListener("click", revealAnswer);
     resetButton.addEventListener("click", resetProgress);
     userInput.focus();
 }
@@ -186,16 +186,15 @@ function addEvents() {
 // REMOVE ALL EVENTS AND MAKE THEM TRANSLUCENT
 function removeEvents() {
     checkAnswerButton.style.opacity = "0.3";
-    revealButton.style.opacity = "0.3";
+    // revealButton.style.opacity = "0.3";
     resetButton.style.opacity = "0.3";
     checkAnswerButton.removeEventListener("click", checkAnswer);
-    revealButton.removeEventListener("click", revealAnswer);
+    // revealButton.removeEventListener("click", revealAnswer);
     resetButton.removeEventListener("click", resetProgress);
 }
 
 // Adds the enter key functionality
 userInput.addEventListener('keypress', (event) => {
-    console.log("EVENT LISTENER");
     if (event.key === 'Enter') {
         checkAnswerButton.click()
         continueButton.focus();

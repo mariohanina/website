@@ -14,6 +14,8 @@ APPS
 Improve the wordCleaner() and typoDetector() functions using regex.    POSTPONABLE
 Make it so that to most matching word is displayed even if the answer is wrong.    POSTPONABLE
 
+Fix the "The" problem in flahcards app.    POSTPONABLE
+
 
 STOCKS
 Handle and log errors better.    POSTPONABLE
