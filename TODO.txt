@@ -1,6 +1,5 @@
 TODO(s):
 
-
 IMAGE VIEWER
 
 Prevent the Image Viewer from panning beyond the edge of the image.    POSTPONABLE
