@@ -1,5 +1,7 @@
 const wordCategory = dictionary[urlParam];
-const wordList = Object.keys(dictionary[urlParam]);
+const customDictionary = {};
+for (const entry of wordCategory) customDictionary[entry[0][0]] = entry[1];
+const wordList = Object.keys(customDictionary);
 const unwatedLetters = ["?", "¡", "!", "'", " / ", "/ ", " /", "/", "-"];
 
 // The score element
@@ -102,7 +104,7 @@ function checkAnswer() {
     } else {
         removeEvents();
 
-        const answerList = wordCategory[unguessed[randomNumber]];
+        const answerList = customDictionary[unguessed[randomNumber]];
         const cleanedAnswerList = answerList.map((word) => wordCleaner(word, unwatedLetters));
         const cleanedUserInput = wordCleaner(userInput.value, unwatedLetters);
         const [condition, accuracy, misspelledWord] =
