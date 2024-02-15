@@ -32,7 +32,7 @@ function createCategory(word, score, listLength) {
 for (const listName of Object.keys(dictionary)) {
 
     // const wordList = Object.keys(dictionary[listName])
-    const wordList = dictionary[listName].map(entry => entry[0][0]);
+    const wordList = dictionary[listName].map(entry => entry[1][0]);
     let score;
 
     if (!localStorage.getItem(listName)) {

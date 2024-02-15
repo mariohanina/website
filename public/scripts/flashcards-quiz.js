@@ -1,6 +1,6 @@
 const wordCategory = dictionary[urlParam];
 const customDictionary = {};
-for (const entry of wordCategory) customDictionary[entry[0][0]] = entry[1];
+for (const entry of wordCategory) customDictionary[entry[1][0]] = entry[0];
 const wordList = Object.keys(customDictionary);
 const unwatedLetters = ["?", "¡", "!", "'", " / ", "/ ", " /", "/", "-"];
 
