@@ -1,43 +1,27 @@
 TODO(s):
 
 IMAGE VIEWER
-
-Prevent the Image Viewer from panning beyond the edge of the image.    POSTPONABLE
-
-Add buttons for the Image Viewer to Navigate throught the images even when inside the viewer.    POSTPONABLE
-
-When a user hits the back button in the gallery, send them to main page, not to previous image.    POSTPONABLE
-
+Prevent panning beyond the edge of the image.    POSTPONABLE
+Add buttons to go to other images even when inside the viewer.    POSTPONABLE
+When hitting the back button in gallery, go to main page, not to previous image.    POSTPONABLE
 
 APPS
 Improve the wordCleaner() and typoDetector() functions using regex.    POSTPONABLE
-Make it so that to most matching word is displayed even if the answer is wrong.    POSTPONABLE
-
+Make it so that the most matching word is displayed even if the answer is wrong.    POSTPONABLE
 Fix the "The" problem in flahcards app.    POSTPONABLE
-
 
 STOCKS
 Handle and log errors better.    POSTPONABLE
 
-
 GENERAL
 Make the Navbar collapsable.    POSTPONABLE
-
 Change the profile picture and decide a proper size for it.    POSTPONABLE
-
 Change pictures container to <figure> instead of <div>.    POSTPONABLE
-
 Remove global variables.    POSTPONABLE
-
 Fix arrow functions syntax: no parantheses if one param, no braces if one-liner.
 
-
 RIGHT BEFORE PUBLISHING
-
-ADD WATER COLOR FOR WET MEDIA.    AT THE END
-
 Add Pinch in/out.    AT THE END
-
 
 NOTES:
 When using Route Parameters with Node.js, we have to start links and URLs with a leading "/".
