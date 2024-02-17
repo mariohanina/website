@@ -55,14 +55,14 @@
     <!-- The image -->
     <div id="image-container">
         <div class="display-area">
-            <img class="display-image" draggable="false" src=<%= imageSource %>>
+            <img id="image-displayed" class="display-image" draggable="false">
         </div>
     </div>
 
     <!-- The buttons -->
     <div class="iv-button-wrapper">
         <div class="iv-ui">
-            <a href=<%= closeButtonLink %>>
+            <a id="close-button-link">
                 <button id="close" title="Close">
                     <span class="material-symbols-outlined google-symbol">close</span>
                 </button>
@@ -79,6 +79,21 @@
         </div>
     </div>
 
+    <div class="iv-navigator">
+        <a id="prev-img">
+            <button><span class="material-symbols-outlined google-symbol">arrow_back</span></button>
+        </a>
+        <a id="next-img">
+            <button><span class="material-symbols-outlined google-symbol">arrow_forward</span></button>
+        </a>
+    </div>
+
+
+    <script>
+        const currentImage = '<%- currentImage %>';
+        const currentFolder = '<%- currentFolder %>';
+        const imageListString = '<%- imageListString %>';
+    </script>
     <script src="/scripts/image-viewer.js"></script>
 
 </body>

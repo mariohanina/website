@@ -206,6 +206,7 @@
 .iv-button-wrapper {
     display: flex;
     justify-content: end;
+    margin-bottom: 0;
 }
 
 .iv-ui {
@@ -217,16 +218,32 @@
     margin-right: 5px;
 }
 
-.iv-ui button {
+.iv-ui button,
+.iv-navigator button {
     width: 40px;
     height: 40px;
     padding: 3px;
     opacity: 0.5;
 }
 
-.iv-ui button:hover {
+.iv-ui button:hover,
+.iv-navigator button:hover {
     opacity: 1;
     background-color: var(--main-bg-color);
+}
+
+.iv-navigator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.iv-navigator button {
+    position: relative;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 /* ----------------------------------------------------------------------------------------- */

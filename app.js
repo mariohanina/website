@@ -26,8 +26,9 @@ app.get("/photo-gallery", (req, res) => {
 })
 app.get("/image-viewer/:folder/:image", (req, res) => {
     res.render("image-viewer", {
-        imageSource: (`/images/${req.params.folder}/${req.params.image}`),
-        closeButtonLink: (`/${(req.params.folder == "drawings") ? "art-gallery" : "photo-gallery"}`)
+        currentImage: req.params.image,
+        currentFolder: req.params.folder,
+        imageListString: fs.readdirSync(`public/images/${req.params.folder}/thumbnails`)
     });
 })
 app.get("/apps/flashcards", (req, res) => { res.render("flashcards-main"); })

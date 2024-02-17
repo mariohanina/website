@@ -2,18 +2,34 @@
 const closeBtn = document.querySelector("#stop-showing-btn");
 const checkBox = document.querySelector("#stop-showing");
 const modal = document.querySelector("#modal");
+const previousImage = document.querySelector("#prev-img");
+const nextImage = document.querySelector("#next-img");
+const imageDisplayed = document.querySelector("#image-displayed");
+const closeButtonLink = document.querySelector("#close-button-link");
 
 closeBtn.addEventListener("click", () => {
-    if (checkBox.checked) {
-        localStorage.setItem("first-time", "true")
-    }
+    if (checkBox.checked) localStorage.setItem("first-time", "true");
     modal.style.display = "none";
 });
 
-if (!localStorage.getItem("first-time")) {
-    modal.style.display = "flex";
-}
+if (!localStorage.getItem("first-time")) modal.style.display = "flex";
 
+imageDisplayed.src = `/images/${currentFolder}/${currentImage}`
+closeButtonLink.href = `/${(currentFolder == "drawings") ? "art-gallery" : "photo-gallery"}`
+
+const imageList = imageListString.split(",");
+const currentImageIndex = imageList.indexOf(currentImage);
+
+if (currentImageIndex === 0) {
+    previousImage.style.visibility = "hidden";
+    nextImage.href = `/image-viewer/${currentFolder}/${imageList[currentImageIndex + 1]}`
+} else if (currentImageIndex === (imageList.length - 1)) {
+    nextImage.style.visibility = "hidden";
+    previousImage.href = `/image-viewer/${currentFolder}/${imageList[currentImageIndex - 1]}`
+} else {
+    previousImage.href = `/image-viewer/${currentFolder}/${imageList[currentImageIndex - 1]}`
+    nextImage.href = `/image-viewer/${currentFolder}/${imageList[currentImageIndex + 1]}`
+}
 
 // Original Code by Kwdowik: https://github.com/kwdowik/zoom-pan
 const hasPositionChanged = ({ pos, prevPos }) => pos !== prevPos;
@@ -69,7 +85,7 @@ const makeZoom = (state) => ({
         const translateX = translate({ pos: originX, prevPos: state.transformation.originX, translate: state.transformation.translateX });
         const translateY = translate({ pos: originY, prevPos: state.transformation.originY, translate: state.transformation.translateY });
 
-        state.element.style.transformOrigin = `${newOriginX}px ${newOriginY}px`;
+        state.element.style.transformOrigin = `${newOriginX}px ${newOriginY} px`;
         state.element.style.transform = getMatrix({ scale: newScale, translateX, translateY });
         state.transformation = { originX: newOriginX, originY: newOriginY, translateX, translateY, scale: newScale };
     }
