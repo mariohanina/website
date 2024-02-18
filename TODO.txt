@@ -2,8 +2,8 @@ TODO(s):
 
 IMAGE VIEWER
 Prevent panning beyond the edge of the image.    POSTPONABLE
-Add buttons to go to other images even when inside the viewer.    POSTPONABLE
 When hitting the back button in gallery, go to main page, not to previous image.    POSTPONABLE
+Change the design of the buttons.    POSTPONABLE
 
 APPS
 Improve the wordCleaner() and typoDetector() functions using regex.    POSTPONABLE
@@ -15,6 +15,7 @@ Handle and log errors better.    POSTPONABLE
 
 GENERAL
 Make the Navbar collapsable.    POSTPONABLE
+Make the images load fully before they show up.    POSTPONABLE
 Change the profile picture and decide a proper size for it.    POSTPONABLE
 Change pictures container to <figure> instead of <div>.    POSTPONABLE
 Remove global variables.    POSTPONABLE
