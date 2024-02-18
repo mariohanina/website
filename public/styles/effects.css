@@ -98,8 +98,8 @@ nav a:first-child {
     }
 }
 
-/* ----------------------------------------------------------------------------------------- */
-/* ------------------------------------- MEDIA QUERIES ------------------------------------- */
+/* ------------------------------------------------------------ */
+/* ------------------------ MEDIA QUERIES ------------------------ */
 
 @media (max-width: 1200px) {
 
@@ -131,11 +131,6 @@ nav a:first-child {
         padding: calc(var(--space-unit) * 2) calc(var(--space-unit) * 1);
     }
 
-    /* MAIN SECTIONS */
-    /* .profile-picture {
-        max-width: 400px;
-    } */
-
     .intro-wrapper h2 {
         text-align: center;
     }
@@ -151,7 +146,6 @@ nav a:first-child {
 
     /* NAVBAR */
     nav {
-        /* gap: calc(var(--space-unit) * 1); */
         justify-content: space-between;
     }
 

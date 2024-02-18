@@ -3,15 +3,14 @@ TODO(s):
 IMAGE VIEWER
 Prevent panning beyond the edge of the image.    POSTPONABLE
 When hitting the back button in gallery, go to main page, not to previous image.    POSTPONABLE
-Change the design of the buttons.    POSTPONABLE
 
 APPS
 Improve the wordCleaner() and typoDetector() functions using regex.    POSTPONABLE
 Make it so that the most matching word is displayed even if the answer is wrong.    POSTPONABLE
-Fix the "The" problem in flahcards app.    POSTPONABLE
 
 STOCKS
 Handle and log errors better.    POSTPONABLE
+Improve the search tool
 
 GENERAL
 Make the Navbar collapsable.    POSTPONABLE
@@ -22,6 +21,7 @@ Remove global variables.    POSTPONABLE
 Fix arrow functions syntax: no parantheses if one param, no braces if one-liner.
 
 RIGHT BEFORE PUBLISHING
+Filter The photography photos
 Add Pinch in/out.    AT THE END
 
 NOTES:

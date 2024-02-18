@@ -154,14 +154,6 @@ function procceed() {
     flipCard(0);
 }
 
-// function revealAnswer() {
-//     if (unguessed.length > 0) {
-//         updateAnswer(wordCategory[unguessed[randomNumber]][0]);
-//         removeEvents();
-//         flipCard(180);
-//     }
-// }
-
 function resetProgress() {
     guessed = [];
     localStorage.setItem(urlParam, JSON.stringify(guessed));
