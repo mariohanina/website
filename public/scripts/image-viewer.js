@@ -85,7 +85,7 @@ const makeZoom = (state) => ({
         const translateX = translate({ pos: originX, prevPos: state.transformation.originX, translate: state.transformation.translateX });
         const translateY = translate({ pos: originY, prevPos: state.transformation.originY, translate: state.transformation.translateY });
 
-        state.element.style.transformOrigin = `${newOriginX}px ${newOriginY} px`;
+        state.element.style.transformOrigin = `${newOriginX}px ${newOriginY}px`;
         state.element.style.transform = getMatrix({ scale: newScale, translateX, translateY });
         state.transformation = { originX: newOriginX, originY: newOriginY, translateX, translateY, scale: newScale };
     }
