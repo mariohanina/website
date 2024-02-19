@@ -1,6 +1,6 @@
-dictionary = {
-    numbers:
-    {
+// const dickionary = {
+const dictionary = {
+    numbers: {
         "Números": ["Numbers"],
         "Cero": ["Zero", "1"],
         "Uno": ["One", "1"],
@@ -509,3 +509,14 @@ dictionary = {
         "son las once menos cinco": ["It is 5 to eleven"],
     }
 }
+
+// const dictionary = {};
+// for (const key in dickionary) {
+//     const dickCat = dickionary[key];
+//     const dictCat = {};
+//     for (const key in dickCat) {
+//         const value = dickCat[key][0];
+//         dictCat[value] = [key];
+//     }
+//     dictionary[key] = dictCat;
+// }
