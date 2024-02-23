@@ -1,6 +1,6 @@
 const wordCategory = dictionary[urlParam];
 const wordList = Object.keys(dictionary[urlParam]);
-const unwatedLetters = ["?", "¡", "!", "'", " / ", "/ ", " /", "/", "-"];
+const unwatedLetters = ["¿", "?", "¡", "!", "'", " / ", "/ ", " /", "/", "-"];
 
 // The score element
 const htmlScore = document.querySelector("#score");
@@ -37,6 +37,7 @@ function randomNum() {
     } else {
         randomNumber = temp;
     }
+    console.log(randomNumber);
 }
 
 // Separate guessed words from unguessed ones
@@ -69,6 +70,7 @@ function typoDetector(userInput, cleanedAnswerList, answerList) {
     let condition = false;
     let accuracy = 0;
     let misspelledWord = answerList[0];
+    const listOfMisspelledWords = {};
 
     for (const [index, element] of cleanedAnswerList.entries()) {
         const elementLength = element.length;
@@ -77,7 +79,12 @@ function typoDetector(userInput, cleanedAnswerList, answerList) {
             for (let index = 0; index < elementLength; index++) {
                 if (userInput[index] === element[index]) count++;
             }
+
             accuracy = count / elementLength;
+            listOfMisspelledWords[answerList[index]] = accuracy;
+            console.log("answerList[index] " + answerList[index]);
+            console.log("listOfMisspelledWords[answerList[index]] " + listOfMisspelledWords[answerList[index]]);
+            console.log("listOfMisspelledWords " + listOfMisspelledWords);
 
             if (accuracy >= 0.9) {
                 misspelledWord = answerList[index];
@@ -86,6 +93,20 @@ function typoDetector(userInput, cleanedAnswerList, answerList) {
             }
         }
     }
+
+    let tempVar = 0;
+    for (const key in listOfMisspelledWords) {
+        console.log("listOfMisspelledWords " + listOfMisspelledWords);
+        console.log("key " + key);
+        console.log("listOfMisspelledWords[key] " + listOfMisspelledWords[key]);
+        if (listOfMisspelledWords[key] > tempVar) {
+            tempVar = listOfMisspelledWords[key];
+            misspelledWord = key;
+            console.log("listOfMisspelledWords[key] " + listOfMisspelledWords[key]);
+        }
+    }
+    // misspelledWord = listOfMisspelledWords[tempVar];
+    // console.log(misspelledWord);
 
     return [condition, accuracy, misspelledWord];
 }

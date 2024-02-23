@@ -154,44 +154,38 @@ function getData() {
         const closingPrice = [];
 
         postRequest("choices", usersChoice)
-            .then(getRequest("information")
-                .then((result) => {
+            .then(() => { return getRequest("information") })
+            .then((result) => {
 
-                    try {
-                        companyInfo = Object.entries(result.information["Weekly Adjusted Time Series"]);
-                        let time = new Date().getTime();
-                        let setDate = time - oneYear;
+                try {
+                    companyInfo = Object.entries(result.information["Weekly Adjusted Time Series"]);
+                    let time = new Date().getTime();
+                    let setDate = time - oneYear;
 
-                        companyInfo.forEach(([key, value]) => {
-                            let keyDate = new Date(key).getTime();
+                    companyInfo.forEach(([key, value]) => {
+                        let keyDate = new Date(key).getTime();
 
-                            if (keyDate > setDate) {
-                                listOfLabels.unshift(key);
-                                closingPrice.unshift(value["5. adjusted close"]);
-                            }
-                        });
+                        if (keyDate > setDate) {
+                            listOfLabels.unshift(key);
+                            closingPrice.unshift(value["5. adjusted close"]);
+                        }
+                    });
 
-                        companyId.innerHTML = usersChoice;
-                        updateChart(stocksChart, listOfLabels, closingPrice);
-                        isDataOk = true;
-                    } catch (error) {
-                        isDataOk = false;
-                        searchOutcome.innerHTML = `<span class="large-text">Sorry, an error occured!</span>`;
-                        getDataBtn.style.display = "none";
-                        console.log("Error location: (B-4).");
-                        console.log(error);
-                    }
-
-                    cleanUp()
-
-                }).catch((error) => {
+                    companyId.innerHTML = usersChoice;
+                    updateChart(stocksChart, listOfLabels, closingPrice);
+                    isDataOk = true;
+                } catch (error) {
                     isDataOk = false;
                     searchOutcome.innerHTML = `<span class="large-text">Sorry, an error occured!</span>`;
                     getDataBtn.style.display = "none";
                     console.log("Error location: (B-4).");
                     console.log(error);
-                })
-            ).catch((error) => {
+                }
+
+                cleanUp()
+
+            })
+            .catch((error) => {
                 isDataOk = false;
                 searchOutcome.innerHTML = `<span class="large-text">Sorry, an error occured!</span>`;
                 getDataBtn.style.display = "none";

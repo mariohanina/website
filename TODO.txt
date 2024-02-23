@@ -5,8 +5,10 @@ Prevent panning beyond the edge of the image.    POSTPONABLE
 When hitting the back button in gallery, go to main page, not to previous image.    POSTPONABLE
 
 APPS
-Improve the wordCleaner() and typoDetector() functions using regex.    POSTPONABLE
-Make it so that the most matching word is displayed even if the answer is wrong.    POSTPONABLE
+1- Improve the wordCleaner() and typoDetector() functions using regex.    POSTPONABLE
+2- Make it so that the most matching word is displayed even if the answer is wrong.    POSTPONABLE
+3- Create seperate logic for verb conjugation
+4- make flashcards reversable
 
 STOCKS
 Handle and log errors better.    POSTPONABLE
