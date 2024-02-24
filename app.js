@@ -1,10 +1,10 @@
 const express = require('express');
+const request = require("request");
 const bodyParser = require("body-parser");
 const contactModule = require(__dirname + "/contact.js");
 const layoutModule = require(__dirname + "/layout.js");
 const fs = require('fs');
 const { StringStream } = require("scramjet");
-const request = require("request");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -89,5 +89,5 @@ app.get("/information", (req, res) => {
 app.post("/", (req, res) => { contactModule.sendEmail(req, res) });
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`App listening on port ${port}`);
 })
