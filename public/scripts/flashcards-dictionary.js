@@ -48,7 +48,7 @@ const dictionary = {
         "Setenta": ["Seventy", "70"],
         "Ochenta": ["Eighty", "80"],
         "Noventa": ["Ninety", "90"],
-        "Ciento": ["One hundred", "100"],
+        "Ciento": ["One hundred", "Hundred", "100"],
         "Doscientos": ["Two hundred", "200"],
         "Trescientos": ["Three hundred", "300"],
         "Cuatrocientos": ["Four hundred", "400"],
@@ -57,7 +57,7 @@ const dictionary = {
         "Setecientos": ["Seven hundred", "700"],
         "Ochocientos": ["Eight hundred", "800"],
         "Novecientos": ["Nine hundred", "900"],
-        "Mil": ["One thousand", "1000"]
+        "Mil": ["One thousand", "Thousand", "1000"]
     }, colors: {
         "Colores": ["Colors"],
         "Blanco/Blanca": ["White"],
@@ -330,7 +330,7 @@ const dictionary = {
         "Por favor": ["Please", "Pls"],
         "Gracias": ["Thank you", "Thanks"],
         "Disculpe": ["Excuse me", "Sorry", "Pardon", "Pardon me"],
-        "Perdón": ["I'm sorry", "I am sorry", "Sorry", "Pardon"],
+        "Perdón": ["I'm sorry", "I am sorry", "Sorry", "Pardon", "Pardon me"],
         "Con permiso": ["Excuse me", "With permission", "Pardon me"],
         "Prueba": ["Quiz", "Test", "Proof", "Evidence", "Trial"],
         "Un/Una": ["A/An", "An/A", "A", "An", "One"],
