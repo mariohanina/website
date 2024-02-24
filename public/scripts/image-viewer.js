@@ -170,18 +170,18 @@ document.querySelector("#zoom-original").addEventListener("click", () => {
 // Restore default state by double clicking
 container.addEventListener("dblclick", (event) => { restoreDefaultState(event) });
 // Restore default state by double tapping
-let mylatesttap;
-function doubletap(event) {
-    let now = new Date().getTime();
-    let timesince = now - mylatesttap;
-    if ((timesince < 400) && (timesince > 0)) { restoreDefaultState(event) }
+// let mylatesttap;
+// function doubletap(event) {
+//     let now = new Date().getTime();
+//     let timesince = now - mylatesttap;
+//     if ((timesince < 400) && (timesince > 0)) { restoreDefaultState(event) }
 
-    mylatesttap = new Date().getTime();
-}
-container.addEventListener("touchstart", (e) => {
-    const touch = e.touches[0];
-    doubletap(touch);
-});
+//     mylatesttap = new Date().getTime();
+// }
+// container.addEventListener("touchstart", (e) => {
+//     const touch = e.touches[0];
+//     doubletap(touch);
+// });
 
 
 // Panning by mouse
@@ -197,55 +197,55 @@ container.addEventListener("mousemove", (event) => {
     });
 })
 // Panning by touching
-let previousTouch;
-container.addEventListener('touchmove', (e) => {
-    const touch = e.touches[0];
+// let previousTouch;
+// container.addEventListener('touchmove', (e) => {
+//     const touch = e.touches[0];
 
-    if (previousTouch && e.targetTouches.length == 1) {
-        console.log("one fing: " + e.targetTouches.length);
-        e.movementX = touch.pageX - previousTouch.pageX;
-        e.movementY = touch.pageY - previousTouch.pageY;
+//     if (previousTouch && e.targetTouches.length == 1) {
+//         console.log("one fing: " + e.targetTouches.length);
+//         e.movementX = touch.pageX - previousTouch.pageX;
+//         e.movementY = touch.pageY - previousTouch.pageY;
 
-        e.preventDefault();
-        instance.panBy({
-            originX: e.movementX,
-            originY: e.movementY
-        });
-    };
+//         e.preventDefault();
+//         instance.panBy({
+//             originX: e.movementX,
+//             originY: e.movementY
+//         });
+//     };
 
-    previousTouch = touch;
-}, false);
-container.addEventListener("touchend", (e) => {
-    previousTouch = null;
-});
+//     previousTouch = touch;
+// }, false);
+// container.addEventListener("touchend", (e) => {
+//     previousTouch = null;
+// });
 
 
 // RISKY CODE
-let firstPreviousTouch;
-let secondPreviousTouch;
-container.addEventListener('touchmove', (e) => {
+// let firstPreviousTouch;
+// let secondPreviousTouch;
+// container.addEventListener('touchmove', (e) => {
 
-    if (e.targetTouches.length == 2) {
-        console.log("hehe");
-        const firstFinger = e.touches[0];
-        const secondFinger = e.touches[1];
+//     if (e.targetTouches.length == 2) {
+//         console.log("hehe");
+//         const firstFinger = e.touches[0];
+//         const secondFinger = e.touches[1];
 
-        let dist = Math.hypot(
-            firstFinger.pageX - secondFinger.pageX,
-            firstFinger.pageY - secondFinger.pageY);
-        let previousDist = Math.hypot(
-            firstPreviousTouch.pageX - secondPreviousTouch.pageX,
-            firstPreviousTouch.pageY - secondPreviousTouch.pageY);
-        let finalDist = dist - previousDist;
+//         let dist = Math.hypot(
+//             firstFinger.pageX - secondFinger.pageX,
+//             firstFinger.pageY - secondFinger.pageY);
+//         let previousDist = Math.hypot(
+//             firstPreviousTouch.pageX - secondPreviousTouch.pageX,
+//             firstPreviousTouch.pageY - secondPreviousTouch.pageY);
+//         let finalDist = dist - previousDist;
 
-        e.preventDefault();
+//         e.preventDefault();
 
-        instance.zoom({
-            deltaScale: Math.sign(finalDist) > 0 ? -1 : 1,
-            x: window.innerWidth / 2,
-            y: window.innerHeight / 2
-        });
-        firstPreviousTouch = firstFinger;
-        secondPreviousTouch = secondFinger;
-    };
-}, false);
+//         instance.zoom({
+//             deltaScale: Math.sign(finalDist) > 0 ? -1 : 1,
+//             x: window.innerWidth / 2,
+//             y: window.innerHeight / 2
+//         });
+//         firstPreviousTouch = firstFinger;
+//         secondPreviousTouch = secondFinger;
+//     };
+// }, false);
