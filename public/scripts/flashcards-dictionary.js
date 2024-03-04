@@ -1,5 +1,5 @@
-// const dickionary = {
-const dictionary = {
+const dickionary = {
+    // const dictionary = {
     numbers: {
         "Números": ["Numbers"],
         "Cero": ["Zero", "1"],
@@ -353,223 +353,223 @@ const dictionary = {
         "Hasta luego": ["See you later", "See you", "Later"],
         "De nada": ["You are welcome", "You're welcome", "Welcome"],
         "Lo siento": ["I am sorry", "I'm sorry", "Sorry"],
-    }
-    // }, verbs: {
-    //     "Verbos": ["Verbs"],
-    //     // Caminar
-    //     "Caminar": ["To walk"],
-    //     "camino": ["I walk"],
-    //     "caminas": ["You walk"],
-    //     "camina": ["He/She walks"],
-    //     "caminamos": ["We walk"],
-    //     "camináis": ["Y'all walk"],
-    //     "caminan": ["They walk"],
-    //     // Saltar
-    //     "Saltar": ["To jump"],
-    //     "salto": ["I jump"],
-    //     "saltas": ["You jump"],    //Mistake
-    //     "salta": ["He/She jumps"],
-    //     "saltamos": ["We jump"],
-    //     "saltáis": ["Y'all jump"],
-    //     "saltan": ["They jump"],
-    //     // Nadar
-    //     "Nadar": ["To swim"],
-    //     "nado": ["I swim"],
-    //     "nadas": ["You swim"],
-    //     "nada": ["He/She swims"],
-    //     "nadamos": ["We swim"],
-    //     "nadáis": ["Y'all swim"],
-    //     "nadan": ["They swim"],
-    //     // Jugar
-    //     "Jugar": ["To play"],
-    //     "juego": ["I play"],
-    //     "juegas": ["You play"],
-    //     "juega": ["He/She plays"],
-    //     "jugamos": ["We play"],
-    //     "jugáis": ["Y'all play"],
-    //     "juegan": ["They play"],
-    //     // Correr
-    //     "Correr": ["To run"],
-    //     "corro": ["I run"],
-    //     "corres": ["You run"],
-    //     "corre": ["He/She runs"],
-    //     "corremos": ["We run"],
-    //     "corréis": ["Y'all run"],
-    //     "corren": ["They run"],
-    //     // Hacer
-    //     "Hacer": ["To do"],
-    //     "hace": ["I do"],
-    //     "haces": ["You do"],
-    //     "hace": ["He/She does"],
-    //     "hacemos": ["We do"],
-    //     "hacéis": ["Y'all do"],    //Mistake
-    //     "hacen": ["They do"],
-    //     // Ser
-    //     // "Ser": ["To be"],
-    //     // "soy": ["I am"],
-    //     // "eres": ["You are"],
-    //     // "es": ["He/She is"],
-    //     // "somos": ["We are"],
-    //     // "sois": ["Y'all are"],
-    //     // "son": ["They are"],
-    //     // Estar
-    //     "Estar": ["To be"],
-    //     "estoy": ["I am"],
-    //     "estás": ["You are"],
-    //     "está": ["He/She is"],
-    //     "estamos": ["We are"],
-    //     "estáis": ["Y'all are"],
-    //     "están": ["They are"],
-    //     // Tener
-    //     "Tener": ["To have"],
-    //     "tengo": ["I have"],
-    //     "tienes": ["You have"],
-    //     "tiene": ["He/She has"],
-    //     "tenemos": ["We have"],
-    //     "tenéis": ["Y'all have"],
-    //     "tienen": ["They have"],
-    //     // Ir
-    //     "Ir": ["To go"],
-    //     "voy": ["I go"],
-    //     "vas": ["You go"],
-    //     "va": ["He/She goes"],
-    //     "vamos": ["We go"],
-    //     "vais": ["Y'all go"],
-    //     "van": ["They go"],
-    //     // Hablar
-    //     "Hablar": ["To speak", "To talk"],
-    //     "hablo": ["I speak", "I talk"],
-    //     "hablas": ["You speak", "You talk"],
-    //     "habla": ["He/She speaks", "He/She talks"],
-    //     "hablamos": ["We speak", "We talk"],
-    //     "habláis": ["Y'all speak", "Y'all talk"],
-    //     "hablan": ["They speak", "They talk"],
-    //     // Ver
-    //     "Ver": ["To see"],
-    //     "veo": ["I see"],
-    //     "ves": ["You see"],
-    //     "ve": ["He/She sees"],
-    //     "vemos": ["We see"],
-    //     "veis": ["Y'all see"],
-    //     "ven": ["They see"],
-    //     // Poder
-    //     "Poder": ["To be able to"],
-    //     "puedo": ["I can"],
-    //     "puedes": ["You can"],
-    //     "puede": ["He/She can"],
-    //     "podemos": ["We can"],
-    //     "podéis": ["Y'all can"],
-    //     "pueden": ["They can"],
-    //     // Quiero
-    //     "Querer": ["To want"],
-    //     "quiero": ["I want"],
-    //     "quieres": ["You want"],
-    //     "quiere": ["He/She wants"],
-    //     "queremos": ["We want"],
-    //     "queréis": ["Y'all want"],
-    //     "quieren": ["They want"],
-    //     // Saber
-    //     "Saber": ["To know"],
-    //     "sé": ["I know"],
-    //     "sabes": ["You know"],
-    //     "sabe": ["He/She knows"],
-    //     "sabemos": ["We know"],
-    //     "sabéis": ["Y'all know"],
-    //     "saben": ["They know"],
-    //     // Conocer
-    //     // "Conocer": ["To know"],
-    //     // "conozco": ["I know"],
-    //     // "conoces": ["You know"],
-    //     // "conoce": ["He/She knows"],
-    //     // "conocemos": ["We know"],
-    //     // "conocéis": ["Y'all know"],
-    //     // "conocen": ["They know"],
-    //     // Poner
-    //     "Poner": ["To put"],
-    //     "pongo": ["I put"],
-    //     "pones": ["You put"],
-    //     "pone": ["He/She puts"],
-    //     "ponemos": ["We put"],
-    //     "ponéis": ["Y'all put"],
-    //     "ponen": ["They put"],
-    //     // Decir
-    //     "Decir": ["To say"],
-    //     "digo": ["I say"],
-    //     "dices": ["You say"],
-    //     "dice": ["He/She says"],
-    //     "decimos": ["We say"],
-    //     "decís": ["Y'all say"],
-    //     "dicen": ["They say"],
-    //     // Dar
-    //     "Dar": ["To give"],
-    //     "doy": ["I give"],
-    //     "das": ["You give"],
-    //     "da": ["He/She gives"],
-    //     "damos": ["We give"],
-    //     "dais": ["Y'all give"],
-    //     "dan": ["They give"],
-    //     // Comer
-    //     "Comer": ["To eat"],
-    //     "como": ["I eat"],
-    //     "comes": ["You eat"],
-    //     "come": ["He/She eats"],
-    //     "comemos": ["We eat"],
-    //     "coméis": ["Y'all eat"],
-    //     "comen": ["They eat"],
-    //     // Bailar
-    //     "Bailar": ["To dance"],
-    //     // Sudar
-    //     "Sudar": ["To sweat"],
-    //     // Necesitar
-    //     "Necesitar": ["To need"],
-    //     // Sentirse
-    //     "Sentirse": ["To feel"],
-    //     "Me siento": ["I feel"],
-    //     "Te sientes": ["You feel"],
-    //     "Se siente": ["He/She feel"],
-    //     "Nos sentimos": ["We feel"],
-    //     "Os sentís": ["Y'all feel"],
-    //     "Se sienten": ["They feel"],
+        // }
+    }, verbs: {
+        "Verbos": ["Verbs"],
+        // Caminar
+        "Caminar": ["To walk"],
+        "camino": ["I walk"],
+        "caminas": ["You walk"],
+        "camina": ["He/She walks"],
+        "caminamos": ["We walk"],
+        "camináis": ["Y'all walk"],
+        "caminan": ["They walk"],
+        // Saltar
+        "Saltar": ["To jump"],
+        "salto": ["I jump"],
+        "saltas": ["You jump"],    //Mistake
+        "salta": ["He/She jumps"],
+        "saltamos": ["We jump"],
+        "saltáis": ["Y'all jump"],
+        "saltan": ["They jump"],
+        // Nadar
+        "Nadar": ["To swim"],
+        "nado": ["I swim"],
+        "nadas": ["You swim"],
+        "nada": ["He/She swims"],
+        "nadamos": ["We swim"],
+        "nadáis": ["Y'all swim"],
+        "nadan": ["They swim"],
+        // Jugar
+        "Jugar": ["To play"],
+        "juego": ["I play"],
+        "juegas": ["You play"],
+        "juega": ["He/She plays"],
+        "jugamos": ["We play"],
+        "jugáis": ["Y'all play"],
+        "juegan": ["They play"],
+        // Correr
+        "Correr": ["To run"],
+        "corro": ["I run"],
+        "corres": ["You run"],
+        "corre": ["He/She runs"],
+        "corremos": ["We run"],
+        "corréis": ["Y'all run"],
+        "corren": ["They run"],
+        // Hacer
+        "Hacer": ["To do"],
+        "hace": ["I do"],
+        "haces": ["You do"],
+        "hace": ["He/She does"],
+        "hacemos": ["We do"],
+        "hacéis": ["Y'all do"],    //Mistake
+        "hacen": ["They do"],
+        // Ser
+        // "Ser": ["To be"],
+        // "soy": ["I am"],
+        // "eres": ["You are"],
+        // "es": ["He/She is"],
+        // "somos": ["We are"],
+        // "sois": ["Y'all are"],
+        // "son": ["They are"],
+        // Estar
+        "Estar": ["To be"],
+        "estoy": ["I am"],
+        "estás": ["You are"],
+        "está": ["He/She is"],
+        "estamos": ["We are"],
+        "estáis": ["Y'all are"],
+        "están": ["They are"],
+        // Tener
+        "Tener": ["To have"],
+        "tengo": ["I have"],
+        "tienes": ["You have"],
+        "tiene": ["He/She has"],
+        "tenemos": ["We have"],
+        "tenéis": ["Y'all have"],
+        "tienen": ["They have"],
+        // Ir
+        "Ir": ["To go"],
+        "voy": ["I go"],
+        "vas": ["You go"],
+        "va": ["He/She goes"],
+        "vamos": ["We go"],
+        "vais": ["Y'all go"],
+        "van": ["They go"],
+        // Hablar
+        "Hablar": ["To speak", "To talk"],
+        "hablo": ["I speak", "I talk"],
+        "hablas": ["You speak", "You talk"],
+        "habla": ["He/She speaks", "He/She talks"],
+        "hablamos": ["We speak", "We talk"],
+        "habláis": ["Y'all speak", "Y'all talk"],
+        "hablan": ["They speak", "They talk"],
+        // Ver
+        "Ver": ["To see"],
+        "veo": ["I see"],
+        "ves": ["You see"],
+        "ve": ["He/She sees"],
+        "vemos": ["We see"],
+        "veis": ["Y'all see"],
+        "ven": ["They see"],
+        // Poder
+        "Poder": ["To be able to"],
+        "puedo": ["I can"],
+        "puedes": ["You can"],
+        "puede": ["He/She can"],
+        "podemos": ["We can"],
+        "podéis": ["Y'all can"],
+        "pueden": ["They can"],
+        // Quiero
+        "Querer": ["To want"],
+        "quiero": ["I want"],
+        "quieres": ["You want"],
+        "quiere": ["He/She wants"],
+        "queremos": ["We want"],
+        "queréis": ["Y'all want"],
+        "quieren": ["They want"],
+        // Saber
+        "Saber": ["To know"],
+        "sé": ["I know"],
+        "sabes": ["You know"],
+        "sabe": ["He/She knows"],
+        "sabemos": ["We know"],
+        "sabéis": ["Y'all know"],
+        "saben": ["They know"],
+        // Conocer
+        // "Conocer": ["To know"],
+        // "conozco": ["I know"],
+        // "conoces": ["You know"],
+        // "conoce": ["He/She knows"],
+        // "conocemos": ["We know"],
+        // "conocéis": ["Y'all know"],
+        // "conocen": ["They know"],
+        // Poner
+        "Poner": ["To put"],
+        "pongo": ["I put"],
+        "pones": ["You put"],
+        "pone": ["He/She puts"],
+        "ponemos": ["We put"],
+        "ponéis": ["Y'all put"],
+        "ponen": ["They put"],
+        // Decir
+        "Decir": ["To say"],
+        "digo": ["I say"],
+        "dices": ["You say"],
+        "dice": ["He/She says"],
+        "decimos": ["We say"],
+        "decís": ["Y'all say"],
+        "dicen": ["They say"],
+        // Dar
+        "Dar": ["To give"],
+        "doy": ["I give"],
+        "das": ["You give"],
+        "da": ["He/She gives"],
+        "damos": ["We give"],
+        "dais": ["Y'all give"],
+        "dan": ["They give"],
+        // Comer
+        "Comer": ["To eat"],
+        "como": ["I eat"],
+        "comes": ["You eat"],
+        "come": ["He/She eats"],
+        "comemos": ["We eat"],
+        "coméis": ["Y'all eat"],
+        "comen": ["They eat"],
+        // Bailar
+        "Bailar": ["To dance"],
+        // Sudar
+        "Sudar": ["To sweat"],
+        // Necesitar
+        "Necesitar": ["To need"],
+        // Sentirse
+        "Sentirse": ["To feel"],
+        "Me siento": ["I feel"],
+        "Te sientes": ["You feel"],
+        "Se siente": ["He/She feel"],
+        "Nos sentimos": ["We feel"],
+        "Os sentís": ["Y'all feel"],
+        "Se sienten": ["They feel"],
 
-    // }
-    // , otherWords: {
-    //     "Soy": ["I am", "Am"],
-    //     "Me llamo": ["My name", "My name is", "My name's"],
-    //     "¿Cómo te llamas?": ["What is your name?", "What's your name?"],
-    //     "¿Me pone?": ["Can you bring me?"],
-    //     "¿y tú?": ["And you?", "And yourself?", "How about you?"],
-    //     "Montar en bicicleta": ["To ride a bike"],
-    //     "No me gusta": ["I do not like"],
-    //     "No me encanta": ["I do not love"],
-    //     "Cuál es nombre": ["What is your name"],
-    //     "Encantado/Encantada": ["Nice to meet you"],
-    //     "Qué tal": ["How are you"],
-    //     "Soy de": ["I am from"],
-    //     "Qué pasa": ["What is up"],
-    //     "Qué paso": ["What is up"],
-    //     "Tomo": ["I will take"],
-    //     "¿Qué hora es?": ["What time is it?", "What hour is it?"],
-    //     "Es la una": ["It is one o'clock"],
-    //     "Son las dos": ["It is two o'clock"],
-    //     "Son las tres": ["It is three o'clock"],
-    //     "Son las cuatro": ["It is four o'clock"],
-    //     "Son las cinco": ["It is five o'clock"],
-    //     "Son las seis": ["It is six o'clock"],
-    //     "son las siete y cuarto": ["It is quarter past seven"],
-    //     "son las ocho y media": ["It is half past eight"],
-    //     "son las nueve menos cuarto": ["It is quarter to nine"],
-    //     "son las diez y veinte": ["It is ten twenty"],
-    //     "son las once menos cinco": ["It is 5 to eleven"],
-    // }
+    }
+    , otherWords: {
+        "Soy": ["I am", "Am"],
+        "Me llamo": ["My name", "My name is", "My name's"],
+        "¿Cómo te llamas?": ["What is your name?", "What's your name?"],
+        "¿Me pone?": ["Can you bring me?"],
+        "¿y tú?": ["And you?", "And yourself?", "How about you?"],
+        "Montar en bicicleta": ["To ride a bike"],
+        "No me gusta": ["I do not like"],
+        "No me encanta": ["I do not love"],
+        "Cuál es tú nombre?": ["What is your name"],
+        "Encantado/Encantada": ["Nice to meet you"],
+        "Qué tal": ["How are you"],
+        "Soy de": ["I am from"],
+        "Qué pasa": ["What is up"],
+        "Qué paso": ["What is up"],
+        "Tomo": ["I will take"],
+        "¿Qué hora es?": ["What time is it?", "What hour is it?"],
+        "Es la una": ["It is one o'clock"],
+        "Son las dos": ["It is two o'clock"],
+        "Son las tres": ["It is three o'clock"],
+        "Son las cuatro": ["It is four o'clock"],
+        "Son las cinco": ["It is five o'clock"],
+        "Son las seis": ["It is six o'clock"],
+        "son las siete y cuarto": ["It is quarter past seven"],
+        "son las ocho y media": ["It is half past eight"],
+        "son las nueve menos cuarto": ["It is quarter to nine"],
+        "son las diez y veinte": ["It is ten twenty"],
+        "son las once menos cinco": ["It is 5 to eleven"],
+    }
 }
 
-// const dictionary = {};
-// for (const key in dickionary) {
-//     const dickCat = dickionary[key];
-//     const dictCat = {};
-//     for (const key in dickCat) {
-//         const value = dickCat[key][0];
-//         dictCat[value] = [key];
-//     }
-//     dictionary[key] = dictCat;
-// }
+const dictionary = {};
+for (const key in dickionary) {
+    const dickCat = dickionary[key];
+    const dictCat = {};
+    for (const key in dickCat) {
+        const value = dickCat[key][0];
+        dictCat[value] = [key];
+    }
+    dictionary[key] = dictCat;
+}
