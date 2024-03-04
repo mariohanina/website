@@ -1,7 +1,6 @@
 TODO(s):
 
 IMAGE VIEWER
-Prevent panning beyond the edge of the image.    POSTPONABLE
 When hitting the back button in gallery, go to main page, not to previous image.    POSTPONABLE
 
 APPS
@@ -23,8 +22,6 @@ Remove global variables.    POSTPONABLE
 Fix arrow functions syntax: no parantheses if one param, no braces if one-liner.
 
 RIGHT BEFORE PUBLISHING
-Filter The photography photos
-Add Pinch in/out.    AT THE END
 
 NOTES:
 When using Route Parameters with Node.js, we have to start links and URLs with a leading "/".
