@@ -9,6 +9,8 @@ APPS
 3- Create seperate logic for verb conjugation
 4- make flashcards reversable
 
+5- CHNAGE THE CONTACT MODULE AND MAKE IT ADHERE TO COLT STEELE'S DESIGN
+
 STOCKS
 Handle and log errors better.    POSTPONABLE
 Improve the search tool

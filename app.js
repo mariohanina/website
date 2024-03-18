@@ -25,6 +25,7 @@ app.get("/photo-gallery", (req, res) => {
     res.render("photo-gallery", { allImages: fs.readdirSync('public/images/photography/thumbnails') });
 })
 app.get("/image-viewer/:folder/:image", (req, res) => {
+    // Can also be done using Query strings (E.g. ?image=crow.jpg)
     res.render("image-viewer", {
         currentImage: req.params.image,
         currentFolder: req.params.folder,

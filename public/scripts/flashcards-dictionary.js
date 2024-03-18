@@ -1,5 +1,5 @@
-const dickionary = {
-    // const dictionary = {
+// const dickionary = {
+const dictionary = {
     numbers: {
         "Números": ["Numbers"],
         "Cero": ["Zero", "1"],
@@ -563,13 +563,13 @@ const dickionary = {
     }
 }
 
-const dictionary = {};
-for (const key in dickionary) {
-    const dickCat = dickionary[key];
-    const dictCat = {};
-    for (const key in dickCat) {
-        const value = dickCat[key][0];
-        dictCat[value] = [key];
-    }
-    dictionary[key] = dictCat;
-}
+// const dictionary = {};
+// for (const key in dickionary) {
+//     const dickCat = dickionary[key];
+//     const dictCat = {};
+//     for (const key in dickCat) {
+//         const value = dickCat[key][0];
+//         dictCat[value] = [key];
+//     }
+//     dictionary[key] = dictCat;
+// }
